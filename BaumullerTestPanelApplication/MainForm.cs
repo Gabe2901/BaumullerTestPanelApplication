@@ -274,6 +274,7 @@ namespace BaumullerTestPanelApplication
             {
                 //TODO: DRIVE 4 STOP START FUNCTION
                 Drive4StopStartBtn.Text = "STOP";
+                
             }
             else
             {
