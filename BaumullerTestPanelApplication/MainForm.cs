@@ -40,11 +40,15 @@ namespace BaumullerTestPanelApplication
             if (StopStart1Btn.Checked)
             {
                 StopStart1Btn.Text = ("STOP");
+                GraphsWindow graphWindow = new GraphsWindow();
+                graphWindow.Show();
 
                 //TODO: PUT START DRIVE 1 FUNCTION HERE
             }
             else
             {
+                GraphsWindow graphsWindow = new GraphsWindow();
+                graphsWindow.Close();
                 StopStart1Btn.Text = ("START");
 
                 //TODO: PUT STOP DRIVE 1 FUNCTION HERE

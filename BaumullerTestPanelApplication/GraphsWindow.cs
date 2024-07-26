@@ -28,8 +28,6 @@ namespace BaumullerTestPanelApplication
 
 
 
-        ScottPlot.WinForms.FormsPlot formsPlot1;
-
         public GraphsWindow()
         {
             InitializeComponent();
@@ -64,6 +62,11 @@ namespace BaumullerTestPanelApplication
                 if (Logger1.HasNewData || Logger2.HasNewData)
                     formsPlot1.Refresh();
             };
+
+        }
+
+        private void GraphsWindow_Load(object sender, EventArgs e)
+        {
 
         }
     }
