@@ -109,7 +109,7 @@ namespace BaumullerTestPanelApplication
             this.button1.TabIndex = 0;
             this.button1.Text = "ESTOP";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.Estop_Clicked);
+            this.button1.Click += new System.EventHandler(this.EstopButtonOnClick);
             // 
             // menuStrip1
             // 
@@ -135,7 +135,7 @@ namespace BaumullerTestPanelApplication
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
             this.closeToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.closeToolStripMenuItem.Text = "Close";
-            this.closeToolStripMenuItem.Click += new System.EventHandler(this.hlepToolStripMenuItem_Click);
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.MenuStripFileCloseBtn);
             // 
             // helpToolStripMenuItem
             // 

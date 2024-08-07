@@ -23,13 +23,13 @@ namespace BaumullerTestPanelApplication
             Drive5HealthTextBox.Text = "DRIVE 5 = OK";
         }
 
-        private void Estop_Clicked(object sender, EventArgs e)
+        private void EstopButtonOnClick(object sender, EventArgs e)
         {
             MessageBox.Show("Emergency stop active, click ok to emergency stop circuit.");
             //TODO: Setup estop activation
         }
 
-        private void hlepToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MenuStripFileCloseBtn(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -39,13 +39,20 @@ namespace BaumullerTestPanelApplication
 
         }
 
+        GraphsWindow graphWindow = new GraphsWindow();
+
         private void Drive1StopStart(object sender, EventArgs e)
         {
+            
             if (Drive1StopStartBtn.Checked)
             {
                 Drive1StopStartBtn.Text = ("STOP");
                 Drive1StopStartBtn.BackColor = Color.Red;
-                GraphsWindow graphWindow = new GraphsWindow();
+
+                if (graphWindow == null || graphWindow.IsDisposed)
+                {
+                    graphWindow = new GraphsWindow();
+                }
                 graphWindow.Show();
 
                 Drive1SpeedBar.Enabled = false;
@@ -59,8 +66,7 @@ namespace BaumullerTestPanelApplication
             }
             else
             {
-                GraphsWindow graphsWindow = new GraphsWindow();
-                graphsWindow.Close();
+                graphWindow.Close();
                 Drive1StopStartBtn.Text = ("START");
                 Drive1StopStartBtn.BackColor = Color.Green;
 

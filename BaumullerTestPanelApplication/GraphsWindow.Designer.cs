@@ -31,6 +31,7 @@ namespace BaumullerTestPanelApplication
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GraphsWindow));
             this.formsPlot1 = new ScottPlot.WinForms.FormsPlot();
             this.btnFull = new System.Windows.Forms.Button();
             this.btnJump = new System.Windows.Forms.Button();
@@ -112,8 +113,11 @@ namespace BaumullerTestPanelApplication
             this.Controls.Add(this.btnJump);
             this.Controls.Add(this.btnFull);
             this.Controls.Add(this.formsPlot1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Location = new System.Drawing.Point(1920, 0);
             this.Name = "GraphsWindow";
-            this.Text = "DataStreamer";
+            this.Text = "GraphWindow";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
 
