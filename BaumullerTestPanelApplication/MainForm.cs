@@ -17,6 +17,10 @@ namespace BaumullerTestPanelApplication
         public MainForm()
         {
             InitializeComponent();
+            Drive1HealthTextBox.Text = "DRIVE 1 = OK";
+            Drive2HealthTextBox.Text = "DRIVE 2 = OK";
+            Drive3HealthTextBox.Text = "DRIVE 3 = OK";
+            Drive5HealthTextBox.Text = "DRIVE 5 = OK";
         }
 
         private void Estop_Clicked(object sender, EventArgs e)

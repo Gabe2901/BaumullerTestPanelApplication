@@ -36,6 +36,7 @@ namespace BaumullerTestPanelApplication
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,6 +85,10 @@ namespace BaumullerTestPanelApplication
             this.Drive6SetSpeedBtn = new System.Windows.Forms.Button();
             this.Drive6RevForToggle = new System.Windows.Forms.CheckBox();
             this.Drive6RedFullToggle = new System.Windows.Forms.CheckBox();
+            this.Drive3HealthTextBox = new System.Windows.Forms.TextBox();
+            this.Drive1HealthTextBox = new System.Windows.Forms.TextBox();
+            this.Drive2HealthTextBox = new System.Windows.Forms.TextBox();
+            this.Drive5HealthTextBox = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Drive1SpeedBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Drive2SpeedBar)).BeginInit();
@@ -128,7 +133,7 @@ namespace BaumullerTestPanelApplication
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.hlepToolStripMenuItem_Click);
             // 
@@ -143,7 +148,7 @@ namespace BaumullerTestPanelApplication
             // hlepToolStripMenuItem
             // 
             this.hlepToolStripMenuItem.Name = "hlepToolStripMenuItem";
-            this.hlepToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hlepToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
             this.hlepToolStripMenuItem.Text = "Help";
             // 
             // StopStart1Btn
@@ -622,11 +627,52 @@ namespace BaumullerTestPanelApplication
             this.Drive6RedFullToggle.UseVisualStyleBackColor = true;
             this.Drive6RedFullToggle.CheckedChanged += new System.EventHandler(this.Drive6RedFull);
             // 
+            // Drive3HealthTextBox
+            // 
+            this.Drive3HealthTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Drive3HealthTextBox.Location = new System.Drawing.Point(1760, 775);
+            this.Drive3HealthTextBox.Name = "Drive3HealthTextBox";
+            this.Drive3HealthTextBox.ReadOnly = true;
+            this.Drive3HealthTextBox.Size = new System.Drawing.Size(132, 29);
+            this.Drive3HealthTextBox.TabIndex = 45;
+            // 
+            // Drive1HealthTextBox
+            // 
+            this.Drive1HealthTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Drive1HealthTextBox.Location = new System.Drawing.Point(1760, 705);
+            this.Drive1HealthTextBox.Name = "Drive1HealthTextBox";
+            this.Drive1HealthTextBox.ReadOnly = true;
+            this.Drive1HealthTextBox.Size = new System.Drawing.Size(132, 29);
+            this.Drive1HealthTextBox.TabIndex = 46;
+            // 
+            // Drive2HealthTextBox
+            // 
+            this.Drive2HealthTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Drive2HealthTextBox.Location = new System.Drawing.Point(1760, 740);
+            this.Drive2HealthTextBox.Name = "Drive2HealthTextBox";
+            this.Drive2HealthTextBox.ReadOnly = true;
+            this.Drive2HealthTextBox.Size = new System.Drawing.Size(132, 29);
+            this.Drive2HealthTextBox.TabIndex = 47;
+            // 
+            // Drive5HealthTextBox
+            // 
+            this.Drive5HealthTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Drive5HealthTextBox.Location = new System.Drawing.Point(1760, 810);
+            this.Drive5HealthTextBox.Name = "Drive5HealthTextBox";
+            this.Drive5HealthTextBox.ReadOnly = true;
+            this.Drive5HealthTextBox.Size = new System.Drawing.Size(132, 29);
+            this.Drive5HealthTextBox.TabIndex = 48;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1904, 961);
+            this.Controls.Add(this.Drive5HealthTextBox);
+            this.Controls.Add(this.Drive2HealthTextBox);
+            this.Controls.Add(this.Drive1HealthTextBox);
+            this.Controls.Add(this.Drive3HealthTextBox);
             this.Controls.Add(this.Drive6RedFullToggle);
             this.Controls.Add(this.Drive6RevForToggle);
             this.Controls.Add(this.Drive6SetSpeedBtn);
@@ -671,6 +717,7 @@ namespace BaumullerTestPanelApplication
             this.Controls.Add(this.StopStart1Btn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "MainForm";
@@ -741,6 +788,10 @@ namespace BaumullerTestPanelApplication
         private System.Windows.Forms.Button Drive6SetSpeedBtn;
         private System.Windows.Forms.CheckBox Drive6RevForToggle;
         private System.Windows.Forms.CheckBox Drive6RedFullToggle;
+        private System.Windows.Forms.TextBox Drive3HealthTextBox;
+        private System.Windows.Forms.TextBox Drive1HealthTextBox;
+        private System.Windows.Forms.TextBox Drive2HealthTextBox;
+        private System.Windows.Forms.TextBox Drive5HealthTextBox;
     }
 }
 
