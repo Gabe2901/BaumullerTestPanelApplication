@@ -49,7 +49,7 @@ namespace BaumullerTestPanelApplication
             this.formsPlot1.DisplayScale = 1F;
             this.formsPlot1.Location = new System.Drawing.Point(10, 45);
             this.formsPlot1.Name = "formsPlot1";
-            this.formsPlot1.Size = new System.Drawing.Size(665, 335);
+            this.formsPlot1.Size = new System.Drawing.Size(1883, 906);
             this.formsPlot1.TabIndex = 0;
             // 
             // btnFull
@@ -74,7 +74,7 @@ namespace BaumullerTestPanelApplication
             // 
             this.rbManage.AutoSize = true;
             this.rbManage.Checked = true;
-            this.rbManage.Location = new System.Drawing.Point(189, 17);
+            this.rbManage.Location = new System.Drawing.Point(413, 16);
             this.rbManage.Name = "rbManage";
             this.rbManage.Size = new System.Drawing.Size(177, 17);
             this.rbManage.TabIndex = 7;
@@ -85,7 +85,7 @@ namespace BaumullerTestPanelApplication
             // rbContinuous
             // 
             this.rbContinuous.AutoSize = true;
-            this.rbContinuous.Location = new System.Drawing.Point(386, 17);
+            this.rbContinuous.Location = new System.Drawing.Point(253, 16);
             this.rbContinuous.Name = "rbContinuous";
             this.rbContinuous.Size = new System.Drawing.Size(154, 17);
             this.rbContinuous.TabIndex = 8;
@@ -94,11 +94,11 @@ namespace BaumullerTestPanelApplication
             // 
             // btnMark
             // 
-            this.btnMark.Location = new System.Drawing.Point(590, 10);
+            this.btnMark.Location = new System.Drawing.Point(172, 10);
             this.btnMark.Name = "btnMark";
             this.btnMark.Size = new System.Drawing.Size(75, 29);
             this.btnMark.TabIndex = 9;
-            this.btnMark.Text = "Mark Position";
+            this.btnMark.Text = "Mark";
             this.btnMark.UseVisualStyleBackColor = true;
             // 
             // GraphsWindow
@@ -106,7 +106,7 @@ namespace BaumullerTestPanelApplication
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(686, 390);
+            this.ClientSize = new System.Drawing.Size(1904, 961);
             this.Controls.Add(this.btnMark);
             this.Controls.Add(this.rbContinuous);
             this.Controls.Add(this.rbManage);

@@ -148,17 +148,18 @@ namespace BaumullerTestPanelApplication
             // hlepToolStripMenuItem
             // 
             this.hlepToolStripMenuItem.Name = "hlepToolStripMenuItem";
-            this.hlepToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
+            this.hlepToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.hlepToolStripMenuItem.Text = "Help";
+            this.hlepToolStripMenuItem.Click += new System.EventHandler(this.HelpMenuItemOnClick);
             // 
-            // StopStart1Btn
+            // Drive1StopStartBtn
             // 
             this.Drive1StopStartBtn.Appearance = System.Windows.Forms.Appearance.Button;
             this.Drive1StopStartBtn.AutoSize = true;
             this.Drive1StopStartBtn.BackColor = System.Drawing.Color.Green;
             this.Drive1StopStartBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Drive1StopStartBtn.Location = new System.Drawing.Point(52, 81);
-            this.Drive1StopStartBtn.Name = "StopStart1Btn";
+            this.Drive1StopStartBtn.Name = "Drive1StopStartBtn";
             this.Drive1StopStartBtn.Size = new System.Drawing.Size(91, 35);
             this.Drive1StopStartBtn.TabIndex = 2;
             this.Drive1StopStartBtn.Text = "START";
@@ -517,12 +518,12 @@ namespace BaumullerTestPanelApplication
             this.Drive5SpeedText.Text = "0";
             this.Drive5SpeedText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Drive5SpeedValidation);
             // 
-            // Drive5SetSpeedBtn
+            // Drive5SpeedBtn
             // 
             this.Drive5SpeedBtn.AutoSize = true;
             this.Drive5SpeedBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Drive5SpeedBtn.Location = new System.Drawing.Point(202, 469);
-            this.Drive5SpeedBtn.Name = "Drive5SetSpeedBtn";
+            this.Drive5SpeedBtn.Name = "Drive5SpeedBtn";
             this.Drive5SpeedBtn.Size = new System.Drawing.Size(140, 35);
             this.Drive5SpeedBtn.TabIndex = 35;
             this.Drive5SpeedBtn.Text = "SET SPEED";

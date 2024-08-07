@@ -284,7 +284,7 @@ namespace BaumullerTestPanelApplication
         private void Drive4SpeedControl(object sender, EventArgs e)
         {
             int Drive4Speed = Drive4SpeedBar.Value;
-            Drive4SpeedText.Text = Convert.ToString(Drive4SpeedBar.Value);
+            Drive4SpeedText.Text = Convert.ToString(Drive4Speed);
         }
 
         private void Drive4SpeedValidation(object sender, KeyPressEventArgs e)
@@ -501,6 +501,12 @@ namespace BaumullerTestPanelApplication
         private void MainForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void HelpMenuItemOnClick(object sender, EventArgs e)
+        {
+            HelpWindow helpWindow = new HelpWindow();
+            helpWindow.Show();
         }
     }
 }
