@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -31,8 +32,13 @@ namespace BaumullerTestPanelApplication
         public GraphsWindow()
         {
             InitializeComponent();
-            this.StartPosition = FormStartPosition.Manual;
-            this.Location = Screen.AllScreens[1].Bounds.Location;
+            if (Screen.AllScreens.Length == 2)
+            {
+                this.StartPosition = FormStartPosition.Manual;
+                this.Location = Screen.AllScreens[1].Bounds.Location;
+            }
+            
+            
 
             // disable interactivity by default
             formsPlot1.Interaction.Disable();
