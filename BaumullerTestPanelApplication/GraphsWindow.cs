@@ -23,8 +23,8 @@ namespace BaumullerTestPanelApplication
         ScottPlot.Plottables.DataLogger Logger1;
         ScottPlot.Plottables.DataLogger Logger2;
 
-        ScottPlot.DataGenerators.RandomWalker Walker1 = new(0, multiplier: 0.01);
-        ScottPlot.DataGenerators.RandomWalker Walker2 = new(1, multiplier: 1000);
+        ScottPlot.DataGenerators.RandomWalker Walker1 = new(0, multiplier: 1);
+        ScottPlot.DataGenerators.RandomWalker Walker2 = new(1, multiplier: 100);
 
 
 
@@ -62,6 +62,10 @@ namespace BaumullerTestPanelApplication
                 if (Logger1.HasNewData || Logger2.HasNewData)
                     formsPlot1.Refresh();
             };
+
+            btnFull.Click += (s, e) => { Logger1.ViewFull(); Logger2.ViewFull(); };
+            btnJump.Click += (s, e) => { Logger1.ViewJump(); Logger2.ViewJump(); };
+            
 
         }
 

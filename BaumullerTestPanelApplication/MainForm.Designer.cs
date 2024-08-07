@@ -43,7 +43,7 @@ namespace BaumullerTestPanelApplication
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hlepToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.StopStart1Btn = new System.Windows.Forms.CheckBox();
+            this.Drive1StopStartBtn = new System.Windows.Forms.CheckBox();
             this.Drive1Label = new System.Windows.Forms.Label();
             this.Drive1SpeedBar = new System.Windows.Forms.TrackBar();
             this.Drive1SpeedText = new System.Windows.Forms.TextBox();
@@ -75,7 +75,7 @@ namespace BaumullerTestPanelApplication
             this.Drive5StopStartBtn = new System.Windows.Forms.CheckBox();
             this.Drive5SpeedBar = new System.Windows.Forms.TrackBar();
             this.Drive5SpeedText = new System.Windows.Forms.TextBox();
-            this.Drive5SetSpeedBtn = new System.Windows.Forms.Button();
+            this.Drive5SpeedBtn = new System.Windows.Forms.Button();
             this.Drive5RevForToggle = new System.Windows.Forms.CheckBox();
             this.Drive5FullRedToggle = new System.Windows.Forms.CheckBox();
             this.Drive6Label = new System.Windows.Forms.Label();
@@ -153,17 +153,18 @@ namespace BaumullerTestPanelApplication
             // 
             // StopStart1Btn
             // 
-            this.StopStart1Btn.Appearance = System.Windows.Forms.Appearance.Button;
-            this.StopStart1Btn.AutoSize = true;
-            this.StopStart1Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StopStart1Btn.Location = new System.Drawing.Point(52, 81);
-            this.StopStart1Btn.Name = "StopStart1Btn";
-            this.StopStart1Btn.Size = new System.Drawing.Size(91, 35);
-            this.StopStart1Btn.TabIndex = 2;
-            this.StopStart1Btn.Text = "START";
-            this.StopStart1Btn.UseVisualStyleBackColor = true;
-            this.StopStart1Btn.CheckedChanged += new System.EventHandler(this.StopStart1Btn_CheckedChanged);
-            this.StopStart1Btn.Click += new System.EventHandler(this.StopStart1Action);
+            this.Drive1StopStartBtn.Appearance = System.Windows.Forms.Appearance.Button;
+            this.Drive1StopStartBtn.AutoSize = true;
+            this.Drive1StopStartBtn.BackColor = System.Drawing.Color.Green;
+            this.Drive1StopStartBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Drive1StopStartBtn.Location = new System.Drawing.Point(52, 81);
+            this.Drive1StopStartBtn.Name = "StopStart1Btn";
+            this.Drive1StopStartBtn.Size = new System.Drawing.Size(91, 35);
+            this.Drive1StopStartBtn.TabIndex = 2;
+            this.Drive1StopStartBtn.Text = "START";
+            this.Drive1StopStartBtn.UseVisualStyleBackColor = false;
+            this.Drive1StopStartBtn.CheckedChanged += new System.EventHandler(this.Drive1StopStart);
+            this.Drive1StopStartBtn.Click += new System.EventHandler(this.StopStart1Action);
             // 
             // Drive1Label
             // 
@@ -245,13 +246,14 @@ namespace BaumullerTestPanelApplication
             // 
             this.Drive2StopStartBtn.Appearance = System.Windows.Forms.Appearance.Button;
             this.Drive2StopStartBtn.AutoSize = true;
+            this.Drive2StopStartBtn.BackColor = System.Drawing.Color.Green;
             this.Drive2StopStartBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Drive2StopStartBtn.Location = new System.Drawing.Point(52, 340);
             this.Drive2StopStartBtn.Name = "Drive2StopStartBtn";
             this.Drive2StopStartBtn.Size = new System.Drawing.Size(91, 35);
             this.Drive2StopStartBtn.TabIndex = 11;
             this.Drive2StopStartBtn.Text = "START";
-            this.Drive2StopStartBtn.UseVisualStyleBackColor = true;
+            this.Drive2StopStartBtn.UseVisualStyleBackColor = false;
             this.Drive2StopStartBtn.CheckedChanged += new System.EventHandler(this.Drive2StopStart);
             // 
             // Drive2SpeedBar
@@ -324,13 +326,14 @@ namespace BaumullerTestPanelApplication
             // 
             this.Drive3StopStartBtn.Appearance = System.Windows.Forms.Appearance.Button;
             this.Drive3StopStartBtn.AutoSize = true;
+            this.Drive3StopStartBtn.BackColor = System.Drawing.Color.Green;
             this.Drive3StopStartBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Drive3StopStartBtn.Location = new System.Drawing.Point(52, 621);
             this.Drive3StopStartBtn.Name = "Drive3StopStartBtn";
             this.Drive3StopStartBtn.Size = new System.Drawing.Size(91, 35);
             this.Drive3StopStartBtn.TabIndex = 18;
             this.Drive3StopStartBtn.Text = "START";
-            this.Drive3StopStartBtn.UseVisualStyleBackColor = true;
+            this.Drive3StopStartBtn.UseVisualStyleBackColor = false;
             this.Drive3StopStartBtn.CheckedChanged += new System.EventHandler(this.Drive3StopStart);
             // 
             // Drive3SpeedBar
@@ -404,13 +407,14 @@ namespace BaumullerTestPanelApplication
             // 
             this.Drive4StopStartBtn.Appearance = System.Windows.Forms.Appearance.Button;
             this.Drive4StopStartBtn.AutoSize = true;
+            this.Drive4StopStartBtn.BackColor = System.Drawing.Color.Green;
             this.Drive4StopStartBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Drive4StopStartBtn.Location = new System.Drawing.Point(222, 81);
             this.Drive4StopStartBtn.Name = "Drive4StopStartBtn";
             this.Drive4StopStartBtn.Size = new System.Drawing.Size(91, 35);
             this.Drive4StopStartBtn.TabIndex = 25;
             this.Drive4StopStartBtn.Text = "START";
-            this.Drive4StopStartBtn.UseVisualStyleBackColor = true;
+            this.Drive4StopStartBtn.UseVisualStyleBackColor = false;
             this.Drive4StopStartBtn.Click += new System.EventHandler(this.Drive4StartStop);
             // 
             // Drive4SpeedBar
@@ -483,13 +487,14 @@ namespace BaumullerTestPanelApplication
             // 
             this.Drive5StopStartBtn.Appearance = System.Windows.Forms.Appearance.Button;
             this.Drive5StopStartBtn.AutoSize = true;
+            this.Drive5StopStartBtn.BackColor = System.Drawing.Color.Green;
             this.Drive5StopStartBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Drive5StopStartBtn.Location = new System.Drawing.Point(222, 340);
             this.Drive5StopStartBtn.Name = "Drive5StopStartBtn";
             this.Drive5StopStartBtn.Size = new System.Drawing.Size(91, 35);
             this.Drive5StopStartBtn.TabIndex = 32;
             this.Drive5StopStartBtn.Text = "START";
-            this.Drive5StopStartBtn.UseVisualStyleBackColor = true;
+            this.Drive5StopStartBtn.UseVisualStyleBackColor = false;
             this.Drive5StopStartBtn.CheckedChanged += new System.EventHandler(this.Drive5StopStart);
             // 
             // Drive5SpeedBar
@@ -514,15 +519,15 @@ namespace BaumullerTestPanelApplication
             // 
             // Drive5SetSpeedBtn
             // 
-            this.Drive5SetSpeedBtn.AutoSize = true;
-            this.Drive5SetSpeedBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Drive5SetSpeedBtn.Location = new System.Drawing.Point(202, 469);
-            this.Drive5SetSpeedBtn.Name = "Drive5SetSpeedBtn";
-            this.Drive5SetSpeedBtn.Size = new System.Drawing.Size(140, 35);
-            this.Drive5SetSpeedBtn.TabIndex = 35;
-            this.Drive5SetSpeedBtn.Text = "SET SPEED";
-            this.Drive5SetSpeedBtn.UseVisualStyleBackColor = true;
-            this.Drive5SetSpeedBtn.Click += new System.EventHandler(this.Drive5SpeedSet);
+            this.Drive5SpeedBtn.AutoSize = true;
+            this.Drive5SpeedBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Drive5SpeedBtn.Location = new System.Drawing.Point(202, 469);
+            this.Drive5SpeedBtn.Name = "Drive5SetSpeedBtn";
+            this.Drive5SpeedBtn.Size = new System.Drawing.Size(140, 35);
+            this.Drive5SpeedBtn.TabIndex = 35;
+            this.Drive5SpeedBtn.Text = "SET SPEED";
+            this.Drive5SpeedBtn.UseVisualStyleBackColor = true;
+            this.Drive5SpeedBtn.Click += new System.EventHandler(this.Drive5SpeedSet);
             // 
             // Drive5RevForToggle
             // 
@@ -562,13 +567,14 @@ namespace BaumullerTestPanelApplication
             // 
             this.Drive6StopStartBtn.Appearance = System.Windows.Forms.Appearance.Button;
             this.Drive6StopStartBtn.AutoSize = true;
+            this.Drive6StopStartBtn.BackColor = System.Drawing.Color.Green;
             this.Drive6StopStartBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Drive6StopStartBtn.Location = new System.Drawing.Point(222, 621);
             this.Drive6StopStartBtn.Name = "Drive6StopStartBtn";
             this.Drive6StopStartBtn.Size = new System.Drawing.Size(91, 35);
             this.Drive6StopStartBtn.TabIndex = 39;
             this.Drive6StopStartBtn.Text = "START";
-            this.Drive6StopStartBtn.UseVisualStyleBackColor = true;
+            this.Drive6StopStartBtn.UseVisualStyleBackColor = false;
             this.Drive6StopStartBtn.CheckedChanged += new System.EventHandler(this.Drive6StopStart);
             // 
             // Drive6SpeedBar
@@ -682,7 +688,7 @@ namespace BaumullerTestPanelApplication
             this.Controls.Add(this.Drive6Label);
             this.Controls.Add(this.Drive5FullRedToggle);
             this.Controls.Add(this.Drive5RevForToggle);
-            this.Controls.Add(this.Drive5SetSpeedBtn);
+            this.Controls.Add(this.Drive5SpeedBtn);
             this.Controls.Add(this.Drive5SpeedText);
             this.Controls.Add(this.Drive5SpeedBar);
             this.Controls.Add(this.Drive5StopStartBtn);
@@ -714,7 +720,7 @@ namespace BaumullerTestPanelApplication
             this.Controls.Add(this.Drive1SpeedText);
             this.Controls.Add(this.Drive1SpeedBar);
             this.Controls.Add(this.Drive1Label);
-            this.Controls.Add(this.StopStart1Btn);
+            this.Controls.Add(this.Drive1StopStartBtn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -746,7 +752,7 @@ namespace BaumullerTestPanelApplication
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hlepToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
-        private System.Windows.Forms.CheckBox StopStart1Btn;
+        private System.Windows.Forms.CheckBox Drive1StopStartBtn;
         private System.Windows.Forms.Label Drive1Label;
         private System.Windows.Forms.TrackBar Drive1SpeedBar;
         private System.Windows.Forms.TextBox Drive1SpeedText;
@@ -778,7 +784,7 @@ namespace BaumullerTestPanelApplication
         private System.Windows.Forms.CheckBox Drive5StopStartBtn;
         private System.Windows.Forms.TrackBar Drive5SpeedBar;
         private System.Windows.Forms.TextBox Drive5SpeedText;
-        private System.Windows.Forms.Button Drive5SetSpeedBtn;
+        private System.Windows.Forms.Button Drive5SpeedBtn;
         private System.Windows.Forms.CheckBox Drive5RevForToggle;
         private System.Windows.Forms.CheckBox Drive5FullRedToggle;
         private System.Windows.Forms.Label Drive6Label;

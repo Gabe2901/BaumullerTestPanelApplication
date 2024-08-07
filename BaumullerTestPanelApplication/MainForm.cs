@@ -39,13 +39,21 @@ namespace BaumullerTestPanelApplication
 
         }
 
-        private void StopStart1Btn_CheckedChanged(object sender, EventArgs e)
+        private void Drive1StopStart(object sender, EventArgs e)
         {
-            if (StopStart1Btn.Checked)
+            if (Drive1StopStartBtn.Checked)
             {
-                StopStart1Btn.Text = ("STOP");
+                Drive1StopStartBtn.Text = ("STOP");
+                Drive1StopStartBtn.BackColor = Color.Red;
                 GraphsWindow graphWindow = new GraphsWindow();
                 graphWindow.Show();
+
+                Drive1SpeedBar.Enabled = false;
+                Drive1SpeedBtn.Enabled = false;
+                Drive1ForRevToggle.Enabled = false;
+                Drive1FullRedCurrToggle.Enabled = false;
+                Drive1SpeedText.Enabled = false;
+                
 
                 //TODO: PUT START DRIVE 1 FUNCTION HERE
             }
@@ -53,7 +61,14 @@ namespace BaumullerTestPanelApplication
             {
                 GraphsWindow graphsWindow = new GraphsWindow();
                 graphsWindow.Close();
-                StopStart1Btn.Text = ("START");
+                Drive1StopStartBtn.Text = ("START");
+                Drive1StopStartBtn.BackColor = Color.Green;
+
+                Drive1SpeedBtn.Enabled = true;
+                Drive1SpeedBar.Enabled = true;
+                Drive1ForRevToggle.Enabled = true;
+                Drive1FullRedCurrToggle.Enabled = true;
+                Drive1SpeedText.Enabled = true;
 
                 //TODO: PUT STOP DRIVE 1 FUNCTION HERE
             }
@@ -116,9 +131,25 @@ namespace BaumullerTestPanelApplication
             if (Drive2StopStartBtn.Checked)
             {
                 Drive2StopStartBtn.Text = "STOP";
+                Drive2StopStartBtn.BackColor = Color.Red;
+
+                Drive2SpeedBar.Enabled = false; 
+                Drive2SetSpeedBtn.Enabled = false;
+                Drive2ForRevToggle.Enabled = false;
+                Drive2FullRedToggle.Enabled = false;
+                Drive2SpeedText.Enabled = false;
+
                 //TODO: DRIVE 2 START METHOD
+
             } else {
                 Drive2StopStartBtn.Text = "START";
+                Drive2StopStartBtn.BackColor = Color.Green;
+
+                Drive2SpeedBar.Enabled = true;
+                Drive2SetSpeedBtn.Enabled = true;
+                Drive2ForRevToggle.Enabled = true;
+                Drive2FullRedToggle.Enabled = true;
+                Drive2SpeedText.Enabled = true;
                 //TODO: DRIVE 2 STOP METHOD
             }
         }
@@ -177,10 +208,24 @@ namespace BaumullerTestPanelApplication
             if (Drive3StopStartBtn.Checked) {
                 //TODO: Drive 3 stop start method
                 Drive3StopStartBtn.Text = "STOP";
+                Drive3StopStartBtn.BackColor = Color.Red;
+
+                Drive3SpeedBar.Enabled = false;
+                Drive3SetSpeedBtn.Enabled = false;
+                Drive3RedFullToggle.Enabled = false;
+                Drive3ForRevToggle.Enabled = false;
+                Drive3SpeedText.Enabled = false;
             }
             else
             {
                 Drive3StopStartBtn.Text = "START";
+                Drive3StopStartBtn.BackColor = Color.Green;
+
+                Drive3SpeedBar.Enabled = true;
+                Drive3SetSpeedBtn.Enabled = true;
+                Drive3RedFullToggle.Enabled = true;
+                Drive3ForRevToggle.Enabled = true;
+                Drive3SpeedText.Enabled = true;
             }
         }
 
@@ -282,11 +327,24 @@ namespace BaumullerTestPanelApplication
             {
                 //TODO: DRIVE 4 STOP START FUNCTION
                 Drive4StopStartBtn.Text = "STOP";
-                
+                Drive4StopStartBtn.BackColor = Color.Red;
+
+                Drive4SpeedBar.Enabled = false;
+                Drive4SetSpeedBtn.Enabled = false;
+                Drive4RevForToggle.Enabled = false;
+                Drive4FullRedToggle.Enabled = false;
+                Drive4SpeedText.Enabled = false;
             }
             else
             {
                 Drive4StopStartBtn.Text = "START";
+                Drive4StopStartBtn.BackColor = Color.Green;
+
+                Drive4SpeedBar.Enabled = true;
+                Drive4SetSpeedBtn.Enabled = true;
+                Drive4FullRedToggle.Enabled = true;
+                Drive4RevForToggle.Enabled = true;
+                Drive4SpeedText.Enabled = true;
             }
         }
 
@@ -295,10 +353,24 @@ namespace BaumullerTestPanelApplication
             if (Drive5StopStartBtn.Checked) {
                 //TODO: DRIVE 5 STOP START FUNCTION
                 Drive5StopStartBtn.Text = "STOP";
+                Drive5StopStartBtn.BackColor = Color.Red;
+
+                Drive5SpeedBar.Enabled = false;
+                Drive5SpeedBtn.Enabled = false;
+                Drive5RevForToggle.Enabled = false;
+                Drive5FullRedToggle.Enabled = false;
+                Drive5SpeedText.Enabled = false;
             }
             else
             {
                 Drive5StopStartBtn.Text = "START";
+                Drive5StopStartBtn.BackColor = Color.Green;
+
+                Drive5SpeedBar.Enabled = true;
+                Drive5SpeedBar.Enabled = true;
+                Drive5RevForToggle.Enabled = true;
+                Drive5FullRedToggle.Enabled = true;
+                Drive5SpeedText.Enabled = true;
             }
         }
 
@@ -353,10 +425,24 @@ namespace BaumullerTestPanelApplication
             {
                 //TODO: Drive 6 stop start function and other methods
                 Drive6StopStartBtn.Text = "STOP";
+                Drive6StopStartBtn.BackColor = Color.Red;
+
+                Drive6SpeedBar.Enabled = false;
+                Drive6SetSpeedBtn.Enabled = false;
+                Drive6RedFullToggle.Enabled = false;
+                Drive6RevForToggle.Enabled = false;
+                Drive6SpeedText.Enabled = false;
             }
             else
             {
                 Drive6StopStartBtn.Text = "START";
+                Drive6StopStartBtn.BackColor = Color.Green;
+
+                Drive6SpeedBar.Enabled = true;
+                Drive6SetSpeedBtn.Enabled = true;
+                Drive6RedFullToggle.Enabled = true;
+                Drive6RevForToggle.Enabled = true;
+                Drive6SpeedText.Enabled = true;
             }
         }
 
