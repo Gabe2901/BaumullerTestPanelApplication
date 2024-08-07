@@ -14,6 +14,8 @@ namespace BaumullerTestPanelApplication
 {
     public partial class MainForm : Form
     {
+        //TODO: add drive health check
+        //TODO: setup modular code for drive control so it isn't this massive clump of spaghetti code for zero reason
         public MainForm()
         {
             InitializeComponent();

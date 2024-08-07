@@ -18,7 +18,7 @@ namespace BaumullerTestPanelApplication
         public string Description => "Plots live streaming data as a growing line plot.";
 
         readonly System.Windows.Forms.Timer AddNewDataTimer = new() { Interval = 10, Enabled = true };
-        readonly System.Windows.Forms.Timer UpdatePlotTimer = new() { Interval = 50, Enabled = true };
+        readonly System.Windows.Forms.Timer UpdatePlotTimer = new() { Interval = 100, Enabled = true };
 
         ScottPlot.Plottables.DataLogger Logger1;
         ScottPlot.Plottables.DataLogger Logger2;

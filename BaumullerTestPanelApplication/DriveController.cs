@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BaumullerTestPanelApplication
 {
-    internal class TimerFunction
+    internal class DriveController
     {
-        //TODO: setup the timer functions for both high and low precision based on user inputted sensor alarm level thingy ma bobby
+        //TODO: setup the drive controller
     }
 }
