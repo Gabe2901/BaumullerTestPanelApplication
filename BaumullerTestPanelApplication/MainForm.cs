@@ -333,7 +333,7 @@ namespace BaumullerTestPanelApplication
         {
             if (Drive4StopStartBtn.Checked)
             {
-                //TODO: DRIVE 4 STOP START FUNCTION
+                //TODO: DRIVE 4 START FUNCTION
                 Drive4StopStartBtn.Text = "STOP";
                 Drive4StopStartBtn.BackColor = Color.Red;
 
@@ -353,6 +353,7 @@ namespace BaumullerTestPanelApplication
                 Drive4FullRedToggle.Enabled = true;
                 Drive4RevForToggle.Enabled = true;
                 Drive4SpeedText.Enabled = true;
+                //TODO: DRIVE 4 STOP FUNCTION
             }
         }
 
