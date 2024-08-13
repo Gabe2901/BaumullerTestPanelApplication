@@ -36,6 +36,7 @@ namespace BaumullerTestPanelApplication
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -89,6 +90,8 @@ namespace BaumullerTestPanelApplication
             this.Drive1HealthTextBox = new System.Windows.Forms.TextBox();
             this.Drive2HealthTextBox = new System.Windows.Forms.TextBox();
             this.Drive5HealthTextBox = new System.Windows.Forms.TextBox();
+            this.TimeControlTextBox = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Drive1SpeedBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Drive2SpeedBar)).BeginInit();
@@ -148,7 +151,7 @@ namespace BaumullerTestPanelApplication
             // hlepToolStripMenuItem
             // 
             this.hlepToolStripMenuItem.Name = "hlepToolStripMenuItem";
-            this.hlepToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hlepToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
             this.hlepToolStripMenuItem.Text = "Help";
             this.hlepToolStripMenuItem.Click += new System.EventHandler(this.HelpMenuItemOnClick);
             // 
@@ -670,12 +673,28 @@ namespace BaumullerTestPanelApplication
             this.Drive5HealthTextBox.Size = new System.Drawing.Size(132, 29);
             this.Drive5HealthTextBox.TabIndex = 48;
             // 
+            // TimeControlTextBox
+            // 
+            this.TimeControlTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TimeControlTextBox.Location = new System.Drawing.Point(46, 893);
+            this.TimeControlTextBox.Name = "TimeControlTextBox";
+            this.TimeControlTextBox.Size = new System.Drawing.Size(100, 31);
+            this.TimeControlTextBox.TabIndex = 49;
+            this.TimeControlTextBox.Text = "0";
+            this.TimeControlTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TimeControlTextBoxValidation);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1904, 961);
+            this.Controls.Add(this.TimeControlTextBox);
             this.Controls.Add(this.Drive5HealthTextBox);
             this.Controls.Add(this.Drive2HealthTextBox);
             this.Controls.Add(this.Drive1HealthTextBox);
@@ -799,6 +818,8 @@ namespace BaumullerTestPanelApplication
         private System.Windows.Forms.TextBox Drive1HealthTextBox;
         private System.Windows.Forms.TextBox Drive2HealthTextBox;
         private System.Windows.Forms.TextBox Drive5HealthTextBox;
+        private System.Windows.Forms.TextBox TimeControlTextBox;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

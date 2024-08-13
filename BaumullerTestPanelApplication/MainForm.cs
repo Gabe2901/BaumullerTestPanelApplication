@@ -41,7 +41,7 @@ namespace BaumullerTestPanelApplication
 
         }
 
-        GraphsWindow graphWindow = new GraphsWindow();
+        TestGraphWindow testGraphWindow = new TestGraphWindow();
 
         private void Drive1StopStart(object sender, EventArgs e)
         {
@@ -50,12 +50,6 @@ namespace BaumullerTestPanelApplication
             {
                 Drive1StopStartBtn.Text = ("STOP");
                 Drive1StopStartBtn.BackColor = Color.Red;
-
-                if (graphWindow == null || graphWindow.IsDisposed)
-                {
-                    graphWindow = new GraphsWindow();
-                }
-                graphWindow.Show();
 
                 Drive1SpeedBar.Enabled = false;
                 Drive1SpeedBtn.Enabled = false;
@@ -68,7 +62,6 @@ namespace BaumullerTestPanelApplication
             }
             else
             {
-                graphWindow.Close();
                 Drive1StopStartBtn.Text = ("START");
                 Drive1StopStartBtn.BackColor = Color.Green;
 
@@ -138,18 +131,36 @@ namespace BaumullerTestPanelApplication
         {
             if (Drive2StopStartBtn.Checked)
             {
-                Drive2StopStartBtn.Text = "STOP";
-                Drive2StopStartBtn.BackColor = Color.Red;
 
-                Drive2SpeedBar.Enabled = false; 
-                Drive2SetSpeedBtn.Enabled = false;
-                Drive2ForRevToggle.Enabled = false;
-                Drive2FullRedToggle.Enabled = false;
-                Drive2SpeedText.Enabled = false;
+                if (Convert.ToInt32(TimeControlTextBox.Text) > 0) {
+                    timer1.Start();
+                    if (testGraphWindow == null || testGraphWindow.IsDisposed)
+                    {
+                        testGraphWindow = new TestGraphWindow();
+                    }
+                    testGraphWindow.Show();
+                    testGraphWindow.Start();
+                    Drive2StopStartBtn.Text = "STOP";
+                    Drive2StopStartBtn.BackColor = Color.Red;
+
+                    Drive2SpeedBar.Enabled = false;
+                    Drive2SetSpeedBtn.Enabled = false;
+                    Drive2ForRevToggle.Enabled = false;
+                    Drive2FullRedToggle.Enabled = false;
+                    Drive2SpeedText.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a time value to start the test.");
+                    Drive2StopStartBtn.Checked = false;
+                }
+                    
 
                 //TODO: DRIVE 2 START METHOD
 
             } else {
+                timer1.Stop();
+                testGraphWindow.Stop();
                 Drive2StopStartBtn.Text = "START";
                 Drive2StopStartBtn.BackColor = Color.Green;
 
@@ -510,6 +521,31 @@ namespace BaumullerTestPanelApplication
         {
             HelpWindow helpWindow = new HelpWindow();
             helpWindow.Show();
+        }
+
+        private void TimeControlTextBoxValidation(object sender, KeyPressEventArgs e)
+        {
+            if (!(e.KeyChar == 8 || (e.KeyChar >= 48 && e.KeyChar <= 57)))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            int EnteredTime = Convert.ToInt32(TimeControlTextBox.Text);
+
+            if (EnteredTime > 0)
+            {
+                EnteredTime = EnteredTime - 1;
+                TimeControlTextBox.Text = Convert.ToString(EnteredTime);
+            }
+            else
+            {
+                timer1.Stop();
+                Drive2StopStartBtn.Checked = false;
+                MessageBox.Show("Test finished. All drives now powered down.");
+            }
         }
     }
 }

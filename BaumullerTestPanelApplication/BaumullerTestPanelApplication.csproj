@@ -73,12 +73,6 @@
     <Compile Include="DataHandler.cs" />
     <Compile Include="DriveController.cs" />
     <Compile Include="EstopController.cs" />
-    <Compile Include="GraphsWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GraphsWindow.Designer.cs">
-      <DependentUpon>GraphsWindow.cs</DependentUpon>
-    </Compile>
     <Compile Include="HelpWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,10 +88,13 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SensorInputController.cs" />
+    <Compile Include="TestGraphWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestGraphWindow.Designer.cs">
+      <DependentUpon>TestGraphWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="TimerFunction.cs" />
-    <EmbeddedResource Include="GraphsWindow.resx">
-      <DependentUpon>GraphsWindow.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="HelpWindow.resx">
       <DependentUpon>HelpWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +111,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TestGraphWindow.resx">
+      <DependentUpon>TestGraphWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
