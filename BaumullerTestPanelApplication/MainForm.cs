@@ -92,14 +92,6 @@ namespace BaumullerTestPanelApplication
             Drive1SpeedBar.Value = Convert.ToInt32(Drive1SpeedText.Text);
         }
 
-        private void Drive1TextValidation(object sender, KeyPressEventArgs e)
-        {
-            if (!(e.KeyChar == 8 || (e.KeyChar >= 48 && e.KeyChar <= 57)))
-            {
-                e.Handled = true;
-            }
-        }
-
         private void Drive1ForRevChange(object sender, EventArgs e)
         {
             if (Drive1ForRevToggle.Checked)
@@ -134,6 +126,7 @@ namespace BaumullerTestPanelApplication
 
                 if (Convert.ToInt32(TimeControlTextBox.Text) > 0) {
                     timer1.Start();
+                    TimeControlTextBox.Enabled = false;
                     if (testGraphWindow == null || testGraphWindow.IsDisposed)
                     {
                         testGraphWindow = new TestGraphWindow();
@@ -160,6 +153,7 @@ namespace BaumullerTestPanelApplication
 
             } else {
                 timer1.Stop();
+                TimeControlTextBox.Enabled = true;
                 testGraphWindow.Stop();
                 Drive2StopStartBtn.Text = "START";
                 Drive2StopStartBtn.BackColor = Color.Green;
@@ -177,14 +171,6 @@ namespace BaumullerTestPanelApplication
         {
             int Drive2Speed = Drive2SpeedBar.Value;
             Drive2SpeedText.Text = Convert.ToString(Drive2Speed);
-        }
-
-        private void Drive2SpeedValidation(object sender, KeyPressEventArgs e)
-        {
-            if (!(e.KeyChar == 8 || (e.KeyChar >= 48 && e.KeyChar <= 57)))
-            {
-                e.Handled = true;
-            }
         }
 
         private void Drive2SpeedSet(object sender, EventArgs e)
@@ -256,15 +242,6 @@ namespace BaumullerTestPanelApplication
             }
             Drive3SpeedBar.Value = Convert.ToInt32(Drive3SpeedText.Text);
         }
-
-        private void Drive3SpeedValidation(object sender, KeyPressEventArgs e)
-        {
-            if (!(e.KeyChar == 8 || (e.KeyChar >= 48 && e.KeyChar <= 57)))
-            {
-                e.Handled = true;
-            }
-        }
-
         private void Drive3SpeedControl(object sender, EventArgs e)
         {
             int Drive3Speed = Drive3SpeedBar.Value;
@@ -299,15 +276,6 @@ namespace BaumullerTestPanelApplication
             int Drive4Speed = Drive4SpeedBar.Value;
             Drive4SpeedText.Text = Convert.ToString(Drive4Speed);
         }
-
-        private void Drive4SpeedValidation(object sender, KeyPressEventArgs e)
-        {
-            if (!(e.KeyChar == 8 || (e.KeyChar >= 48 && e.KeyChar <= 57)))
-            {
-                e.Handled = true;
-            }
-        }
-
         private void Drive4SpeedSet(object sender, EventArgs e)
         {
             if(Convert.ToInt32(Drive4SpeedText.Text) > 2500)
@@ -393,15 +361,6 @@ namespace BaumullerTestPanelApplication
                 Drive5SpeedText.Enabled = true;
             }
         }
-
-        private void Drive5SpeedValidation(object sender, KeyPressEventArgs e)
-        {
-            if (!(e.KeyChar == 8 || (e.KeyChar >= 48 && e.KeyChar <= 57)))
-            {
-                e.Handled = true;
-            }
-        }
-
         private void Drive5SpeedControl(object sender, EventArgs e)
         {
             int Drive5Speed = Drive5SpeedBar.Value;
@@ -465,15 +424,6 @@ namespace BaumullerTestPanelApplication
                 Drive6SpeedText.Enabled = true;
             }
         }
-
-        private void Drive6SpeedValidation(object sender, KeyPressEventArgs e)
-        {
-            if (!(e.KeyChar == 8 || (e.KeyChar >= 48 && e.KeyChar <= 57)))
-            {
-                e.Handled = true;
-            }
-        }
-
         private void Drive6SetSpeed(object sender, EventArgs e)
         {
             if(Convert.ToInt32(Drive6SpeedText.Text) > 2500)
@@ -523,7 +473,7 @@ namespace BaumullerTestPanelApplication
             helpWindow.Show();
         }
 
-        private void TimeControlTextBoxValidation(object sender, KeyPressEventArgs e)
+        private void NumericalTextBoxInputValidation(object sender, KeyPressEventArgs e)
         {
             if (!(e.KeyChar == 8 || (e.KeyChar >= 48 && e.KeyChar <= 57)))
             {
@@ -539,12 +489,13 @@ namespace BaumullerTestPanelApplication
             {
                 EnteredTime = EnteredTime - 1;
                 TimeControlTextBox.Text = Convert.ToString(EnteredTime);
+                
             }
             else
             {
                 timer1.Stop();
                 Drive2StopStartBtn.Checked = false;
-                MessageBox.Show("Test finished. All drives now powered down.");
+                MessageBox.Show("Test finished.");
             }
         }
     }

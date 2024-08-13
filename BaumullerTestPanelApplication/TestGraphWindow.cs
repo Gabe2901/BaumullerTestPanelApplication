@@ -35,6 +35,8 @@ namespace BaumullerTestPanelApplication
 
         readonly ScottPlot.Plottables.VerticalLine VLine;
 
+        AxisLine? PlottableBeingDragged = null;
+
         public void Start()
         {
             AddNewDataTimer.Start();
@@ -60,8 +62,70 @@ namespace BaumullerTestPanelApplication
             Streamer2 = formsPlot1.Plot.Add.DataStreamer(1000);
             VLine = formsPlot1.Plot.Add.VerticalLine(0, 2, ScottPlot.Colors.Red);
 
+            Streamer1.LegendText = "Temperature 1";
+            Streamer2.LegendText = "Temperature 2";
+
+            //Vertical lines
+            var v1 = formsPlot1.Plot.Add.VerticalLine(23);
+            v1.IsDraggable = true;
+
+            var h1 = formsPlot1.Plot.Add.HorizontalLine(0.42);
+            h1.IsDraggable = true;
+
+            //Plot interactivity for lines
+            formsPlot1.MouseDown += FormsPlot1_MouseDown;
+            formsPlot1.MouseUp += FormsPlot1_MouseUp;
+            formsPlot1.MouseMove += FormsPlot1_MouseMove;
+
+            void FormsPlot1_MouseDown(object? sender, MouseEventArgs e)
+            {
+                var lineUnderMouse = GetLineUnderMouse(e.X, e.Y);
+                if (lineUnderMouse is not null)
+                {
+                    PlottableBeingDragged = lineUnderMouse;
+                    formsPlot1.Interaction.Disable(); // disable panning while dragging
+                }
+            }
+
+            void FormsPlot1_MouseUp(object? sender, MouseEventArgs e)
+            {
+                PlottableBeingDragged = null;
+                formsPlot1.Interaction.Enable(); // enable panning again
+                formsPlot1.Refresh();
+            }
+
+            void FormsPlot1_MouseMove(object? sender, MouseEventArgs e)
+            {
+                // this rectangle is the area around the mouse in coordinate units
+                CoordinateRect rect = formsPlot1.Plot.GetCoordinateRect(e.X, e.Y, radius: 10);
+
+                if (PlottableBeingDragged is null)
+                {
+                    // set cursor based on what's beneath the plottable
+                    var lineUnderMouse = GetLineUnderMouse(e.X, e.Y);
+                    if (lineUnderMouse is null) Cursor = Cursors.Default;
+                    else if (lineUnderMouse.IsDraggable && lineUnderMouse is VerticalLine) Cursor = Cursors.SizeWE;
+                    else if (lineUnderMouse.IsDraggable && lineUnderMouse is HorizontalLine) Cursor = Cursors.SizeNS;
+                }
+                else
+                {
+                    // update the position of the plottable being dragged
+                    if (PlottableBeingDragged is HorizontalLine hl)
+                    {
+                        hl.Y = rect.VerticalCenter;
+                        hl.Text = $"{hl.Y:0.00}";
+                    }
+                    else if (PlottableBeingDragged is VerticalLine vl)
+                    {
+                        vl.X = rect.HorizontalCenter;
+                        vl.Text = $"{vl.X:0.00}";
+                    }
+                    formsPlot1.Refresh();
+                }
+            }
+
             // disable mouse interaction by default
-            formsPlot1.Interaction.Disable();
+            //formsPlot1.Interaction.Disable();
 
             // only show marker button in scroll mode
             btnMark.Visible = false;
@@ -195,6 +259,19 @@ namespace BaumullerTestPanelApplication
                     formsPlot2.Refresh();
                 }
             };
+        }
+
+        private AxisLine? GetLineUnderMouse(float x, float y)
+        {
+            CoordinateRect rect = formsPlot1.Plot.GetCoordinateRect(x, y, radius: 10);
+
+            foreach (AxisLine axLine in formsPlot1.Plot.GetPlottables<AxisLine>().Reverse())
+            {
+                if (axLine.IsUnderMouse(rect))
+                    return axLine;
+            }
+
+            return null;
         }
 
         private void TestGraphWindow_Load(object sender, EventArgs e)

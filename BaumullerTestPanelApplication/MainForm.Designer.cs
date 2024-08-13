@@ -92,6 +92,7 @@ namespace BaumullerTestPanelApplication
             this.Drive5HealthTextBox = new System.Windows.Forms.TextBox();
             this.TimeControlTextBox = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.TimerTextBoxLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Drive1SpeedBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Drive2SpeedBar)).BeginInit();
@@ -198,7 +199,7 @@ namespace BaumullerTestPanelApplication
             this.Drive1SpeedText.Size = new System.Drawing.Size(100, 31);
             this.Drive1SpeedText.TabIndex = 5;
             this.Drive1SpeedText.Text = "0";
-            this.Drive1SpeedText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Drive1TextValidation);
+            this.Drive1SpeedText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericalTextBoxInputValidation);
             // 
             // Drive1SpeedBtn
             // 
@@ -278,7 +279,7 @@ namespace BaumullerTestPanelApplication
             this.Drive2SpeedText.Size = new System.Drawing.Size(100, 31);
             this.Drive2SpeedText.TabIndex = 13;
             this.Drive2SpeedText.Text = "0";
-            this.Drive2SpeedText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Drive2SpeedValidation);
+            this.Drive2SpeedText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericalTextBoxInputValidation);
             // 
             // Drive2SetSpeedBtn
             // 
@@ -359,7 +360,7 @@ namespace BaumullerTestPanelApplication
             this.Drive3SpeedText.Size = new System.Drawing.Size(100, 31);
             this.Drive3SpeedText.TabIndex = 20;
             this.Drive3SpeedText.Text = "0";
-            this.Drive3SpeedText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Drive3SpeedValidation);
+            this.Drive3SpeedText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericalTextBoxInputValidation);
             // 
             // Drive3SetSpeedBtn
             // 
@@ -439,7 +440,7 @@ namespace BaumullerTestPanelApplication
             this.Drive4SpeedText.Size = new System.Drawing.Size(100, 31);
             this.Drive4SpeedText.TabIndex = 27;
             this.Drive4SpeedText.Text = "0";
-            this.Drive4SpeedText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Drive4SpeedValidation);
+            this.Drive4SpeedText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericalTextBoxInputValidation);
             // 
             // Drive4SetSpeedBtn
             // 
@@ -519,7 +520,7 @@ namespace BaumullerTestPanelApplication
             this.Drive5SpeedText.Size = new System.Drawing.Size(100, 31);
             this.Drive5SpeedText.TabIndex = 34;
             this.Drive5SpeedText.Text = "0";
-            this.Drive5SpeedText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Drive5SpeedValidation);
+            this.Drive5SpeedText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericalTextBoxInputValidation);
             // 
             // Drive5SpeedBtn
             // 
@@ -599,7 +600,7 @@ namespace BaumullerTestPanelApplication
             this.Drive6SpeedText.Size = new System.Drawing.Size(100, 31);
             this.Drive6SpeedText.TabIndex = 41;
             this.Drive6SpeedText.Text = "0";
-            this.Drive6SpeedText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Drive6SpeedValidation);
+            this.Drive6SpeedText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericalTextBoxInputValidation);
             // 
             // Drive6SetSpeedBtn
             // 
@@ -681,12 +682,23 @@ namespace BaumullerTestPanelApplication
             this.TimeControlTextBox.Size = new System.Drawing.Size(100, 31);
             this.TimeControlTextBox.TabIndex = 49;
             this.TimeControlTextBox.Text = "0";
-            this.TimeControlTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TimeControlTextBoxValidation);
+            this.TimeControlTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TimeControlTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericalTextBoxInputValidation);
             // 
             // timer1
             // 
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // TimerTextBoxLabel
+            // 
+            this.TimerTextBoxLabel.AutoSize = true;
+            this.TimerTextBoxLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TimerTextBoxLabel.Location = new System.Drawing.Point(46, 865);
+            this.TimerTextBoxLabel.Name = "TimerTextBoxLabel";
+            this.TimerTextBoxLabel.Size = new System.Drawing.Size(59, 25);
+            this.TimerTextBoxLabel.TabIndex = 50;
+            this.TimerTextBoxLabel.Text = "Time";
             // 
             // MainForm
             // 
@@ -694,6 +706,7 @@ namespace BaumullerTestPanelApplication
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1904, 961);
+            this.Controls.Add(this.TimerTextBoxLabel);
             this.Controls.Add(this.TimeControlTextBox);
             this.Controls.Add(this.Drive5HealthTextBox);
             this.Controls.Add(this.Drive2HealthTextBox);
@@ -820,6 +833,7 @@ namespace BaumullerTestPanelApplication
         private System.Windows.Forms.TextBox Drive5HealthTextBox;
         private System.Windows.Forms.TextBox TimeControlTextBox;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label TimerTextBoxLabel;
     }
 }
 

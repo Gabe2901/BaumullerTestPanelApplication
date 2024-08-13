@@ -39,8 +39,9 @@ namespace BaumullerTestPanelApplication
             this.formsPlot1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.formsPlot1.DisplayScale = 1F;
             this.formsPlot1.Location = new System.Drawing.Point(10, 40);
+            this.formsPlot1.MaximumSize = new System.Drawing.Size(940, 840);
             this.formsPlot1.Name = "formsPlot1";
-            this.formsPlot1.Size = new System.Drawing.Size(960, 843);
+            this.formsPlot1.Size = new System.Drawing.Size(940, 840);
             this.formsPlot1.TabIndex = 0;
             // 
             // btnWipeRight
@@ -96,9 +97,10 @@ namespace BaumullerTestPanelApplication
             // 
             this.formsPlot2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.formsPlot2.DisplayScale = 1F;
-            this.formsPlot2.Location = new System.Drawing.Point(950, 40);
+            this.formsPlot2.Location = new System.Drawing.Point(968, 40);
+            this.formsPlot2.MaximumSize = new System.Drawing.Size(940, 840);
             this.formsPlot2.Name = "formsPlot2";
-            this.formsPlot2.Size = new System.Drawing.Size(960, 843);
+            this.formsPlot2.Size = new System.Drawing.Size(940, 840);
             this.formsPlot2.TabIndex = 0;
             // 
             // TestGraphWindow
