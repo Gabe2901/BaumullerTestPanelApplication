@@ -11,7 +11,7 @@ namespace BaumullerTestPanelApplication
     public partial class MainForm : Form
     {
         //VARIABLES
-        List<int> DriveSpeedLimitList = new List<int> { 100, 100, 100, 100, 100, 100 };
+        List<int> DriveSpeedLimitList = new List<int> { 2500, 2500, 2500, 2500, 2500, 2500 };
 
         //Graph window
         TestGraphWindow testGraphWindow = new TestGraphWindow();
