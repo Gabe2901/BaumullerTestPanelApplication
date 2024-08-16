@@ -166,9 +166,10 @@ namespace BaumullerTestPanelApplication
             this.Drive1StopStartBtn.Name = "Drive1StopStartBtn";
             this.Drive1StopStartBtn.Size = new System.Drawing.Size(91, 35);
             this.Drive1StopStartBtn.TabIndex = 2;
+            this.Drive1StopStartBtn.Tag = "Drive1";
             this.Drive1StopStartBtn.Text = "START";
             this.Drive1StopStartBtn.UseVisualStyleBackColor = false;
-            this.Drive1StopStartBtn.CheckedChanged += new System.EventHandler(this.Drive1StopStart);
+            this.Drive1StopStartBtn.CheckedChanged += new System.EventHandler(this.StopStartMethod);
             // 
             // Drive1Label
             // 
@@ -187,7 +188,8 @@ namespace BaumullerTestPanelApplication
             this.Drive1SpeedBar.Name = "Drive1SpeedBar";
             this.Drive1SpeedBar.Size = new System.Drawing.Size(104, 45);
             this.Drive1SpeedBar.TabIndex = 4;
-            this.Drive1SpeedBar.ValueChanged += new System.EventHandler(this.Drive1SpeedControl);
+            this.Drive1SpeedBar.Tag = "Drive1";
+            this.Drive1SpeedBar.ValueChanged += new System.EventHandler(this.DriveSpeedControl);
             // 
             // Drive1SpeedText
             // 
@@ -197,6 +199,7 @@ namespace BaumullerTestPanelApplication
             this.Drive1SpeedText.Name = "Drive1SpeedText";
             this.Drive1SpeedText.Size = new System.Drawing.Size(100, 31);
             this.Drive1SpeedText.TabIndex = 5;
+            this.Drive1SpeedText.Tag = "Drive1";
             this.Drive1SpeedText.Text = "0";
             this.Drive1SpeedText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericalTextBoxInputValidation);
             // 
@@ -208,9 +211,10 @@ namespace BaumullerTestPanelApplication
             this.Drive1SpeedBtn.Name = "Drive1SpeedBtn";
             this.Drive1SpeedBtn.Size = new System.Drawing.Size(140, 35);
             this.Drive1SpeedBtn.TabIndex = 6;
+            this.Drive1SpeedBtn.Tag = "Drive1";
             this.Drive1SpeedBtn.Text = "SET SPEED";
             this.Drive1SpeedBtn.UseVisualStyleBackColor = true;
-            this.Drive1SpeedBtn.Click += new System.EventHandler(this.Drive1SpeedBtnSet);
+            this.Drive1SpeedBtn.Click += new System.EventHandler(this.DriveSetSpeed);
             // 
             // Drive1ForRevToggle
             // 
@@ -220,9 +224,10 @@ namespace BaumullerTestPanelApplication
             this.Drive1ForRevToggle.Name = "Drive1ForRevToggle";
             this.Drive1ForRevToggle.Size = new System.Drawing.Size(139, 29);
             this.Drive1ForRevToggle.TabIndex = 8;
+            this.Drive1ForRevToggle.Tag = "Drive1";
             this.Drive1ForRevToggle.Text = "FORWARD";
             this.Drive1ForRevToggle.UseVisualStyleBackColor = true;
-            this.Drive1ForRevToggle.CheckedChanged += new System.EventHandler(this.Drive1ForRevChange);
+            this.Drive1ForRevToggle.CheckedChanged += new System.EventHandler(this.ForwardReverseToggleMethod);
             // 
             // Drive1FullRedCurrToggle
             // 
@@ -232,9 +237,10 @@ namespace BaumullerTestPanelApplication
             this.Drive1FullRedCurrToggle.Name = "Drive1FullRedCurrToggle";
             this.Drive1FullRedCurrToggle.Size = new System.Drawing.Size(83, 29);
             this.Drive1FullRedCurrToggle.TabIndex = 9;
+            this.Drive1FullRedCurrToggle.Tag = "Drive1";
             this.Drive1FullRedCurrToggle.Text = "FULL";
             this.Drive1FullRedCurrToggle.UseVisualStyleBackColor = true;
-            this.Drive1FullRedCurrToggle.CheckedChanged += new System.EventHandler(this.Drive1FullRed);
+            this.Drive1FullRedCurrToggle.CheckedChanged += new System.EventHandler(this.FullReducedToggleMethod);
             // 
             // Drive2Label
             // 
@@ -258,7 +264,8 @@ namespace BaumullerTestPanelApplication
             this.Drive2StopStartBtn.TabIndex = 11;
             this.Drive2StopStartBtn.Text = "START";
             this.Drive2StopStartBtn.UseVisualStyleBackColor = false;
-            this.Drive2StopStartBtn.CheckedChanged += new System.EventHandler(this.Drive2StopStart);
+            this.Drive2StopStartBtn.CheckedChanged += new System.EventHandler(this.StopStartMethod);
+            this.Drive2StopStartBtn.Tag = "Drive2";
             // 
             // Drive2SpeedBar
             // 
@@ -267,7 +274,8 @@ namespace BaumullerTestPanelApplication
             this.Drive2SpeedBar.Name = "Drive2SpeedBar";
             this.Drive2SpeedBar.Size = new System.Drawing.Size(104, 45);
             this.Drive2SpeedBar.TabIndex = 12;
-            this.Drive2SpeedBar.ValueChanged += new System.EventHandler(this.Drive2SpeedControl);
+            this.Drive2SpeedBar.ValueChanged += new System.EventHandler(this.DriveSpeedControl);
+            this.Drive2SpeedBar.Tag = "Drive2";
             // 
             // Drive2SpeedText
             // 
@@ -279,6 +287,7 @@ namespace BaumullerTestPanelApplication
             this.Drive2SpeedText.TabIndex = 13;
             this.Drive2SpeedText.Text = "0";
             this.Drive2SpeedText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericalTextBoxInputValidation);
+            this.Drive2SpeedText.Tag = "Drive2";
             // 
             // Drive2SetSpeedBtn
             // 
@@ -290,7 +299,8 @@ namespace BaumullerTestPanelApplication
             this.Drive2SetSpeedBtn.TabIndex = 14;
             this.Drive2SetSpeedBtn.Text = "SET SPEED";
             this.Drive2SetSpeedBtn.UseVisualStyleBackColor = true;
-            this.Drive2SetSpeedBtn.Click += new System.EventHandler(this.Drive2SpeedSet);
+            this.Drive2SetSpeedBtn.Click += new System.EventHandler(this.DriveSetSpeed);
+            this.Drive2SetSpeedBtn.Tag = "Drive2";
             // 
             // Drive2ForRevToggle
             // 
@@ -302,7 +312,8 @@ namespace BaumullerTestPanelApplication
             this.Drive2ForRevToggle.TabIndex = 15;
             this.Drive2ForRevToggle.Text = "FORWARD";
             this.Drive2ForRevToggle.UseVisualStyleBackColor = true;
-            this.Drive2ForRevToggle.CheckedChanged += new System.EventHandler(this.Drive2ForRevChange);
+            this.Drive2ForRevToggle.CheckedChanged += new System.EventHandler(this.ForwardReverseToggleMethod);
+            this.Drive2ForRevToggle.Tag = "Drive2";
             // 
             // Drive2FullRedToggle
             // 
@@ -314,7 +325,8 @@ namespace BaumullerTestPanelApplication
             this.Drive2FullRedToggle.TabIndex = 16;
             this.Drive2FullRedToggle.Text = "FULL";
             this.Drive2FullRedToggle.UseVisualStyleBackColor = true;
-            this.Drive2FullRedToggle.CheckedChanged += new System.EventHandler(this.Drive2FullRed);
+            this.Drive2FullRedToggle.CheckedChanged += new System.EventHandler(this.FullReducedToggleMethod);
+            this.Drive2FullRedToggle.Tag = "Drive2";
             // 
             // Drive3Label
             // 
@@ -338,7 +350,8 @@ namespace BaumullerTestPanelApplication
             this.Drive3StopStartBtn.TabIndex = 18;
             this.Drive3StopStartBtn.Text = "START";
             this.Drive3StopStartBtn.UseVisualStyleBackColor = false;
-            this.Drive3StopStartBtn.CheckedChanged += new System.EventHandler(this.Drive3StopStart);
+            this.Drive3StopStartBtn.CheckedChanged += new System.EventHandler(this.StopStartMethod);
+            this.Drive3StopStartBtn.Tag = "Drive3";
             // 
             // Drive3SpeedBar
             // 
@@ -347,7 +360,8 @@ namespace BaumullerTestPanelApplication
             this.Drive3SpeedBar.Name = "Drive3SpeedBar";
             this.Drive3SpeedBar.Size = new System.Drawing.Size(104, 45);
             this.Drive3SpeedBar.TabIndex = 19;
-            this.Drive3SpeedBar.ValueChanged += new System.EventHandler(this.Drive3SpeedControl);
+            this.Drive3SpeedBar.ValueChanged += new System.EventHandler(this.DriveSpeedControl);
+            this.Drive3SpeedBar.Tag = "Drive3";
             // 
             // Drive3SpeedText
             // 
@@ -360,6 +374,7 @@ namespace BaumullerTestPanelApplication
             this.Drive3SpeedText.TabIndex = 20;
             this.Drive3SpeedText.Text = "0";
             this.Drive3SpeedText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericalTextBoxInputValidation);
+            this.Drive3SpeedText.Tag = "Drive3";
             // 
             // Drive3SetSpeedBtn
             // 
@@ -371,7 +386,8 @@ namespace BaumullerTestPanelApplication
             this.Drive3SetSpeedBtn.TabIndex = 21;
             this.Drive3SetSpeedBtn.Text = "SET SPEED";
             this.Drive3SetSpeedBtn.UseVisualStyleBackColor = true;
-            this.Drive3SetSpeedBtn.Click += new System.EventHandler(this.Drive3SpeedSet);
+            this.Drive3SetSpeedBtn.Click += new System.EventHandler(this.DriveSetSpeed);
+            this.Drive3SetSpeedBtn.Tag = "Drive3";
             // 
             // Drive3ForRevToggle
             // 
@@ -383,7 +399,8 @@ namespace BaumullerTestPanelApplication
             this.Drive3ForRevToggle.TabIndex = 22;
             this.Drive3ForRevToggle.Text = "FORWARD";
             this.Drive3ForRevToggle.UseVisualStyleBackColor = true;
-            this.Drive3ForRevToggle.CheckedChanged += new System.EventHandler(this.Drive3ForRevChange);
+            this.Drive3ForRevToggle.CheckedChanged += new System.EventHandler(this.ForwardReverseToggleMethod);
+            this.Drive3ForRevToggle.Tag = "Drive3";
             // 
             // Drive3RedFullToggle
             // 
@@ -395,7 +412,8 @@ namespace BaumullerTestPanelApplication
             this.Drive3RedFullToggle.TabIndex = 23;
             this.Drive3RedFullToggle.Text = "FULL";
             this.Drive3RedFullToggle.UseVisualStyleBackColor = true;
-            this.Drive3RedFullToggle.CheckedChanged += new System.EventHandler(this.Drive3RedFull);
+            this.Drive3RedFullToggle.CheckedChanged += new System.EventHandler(this.FullReducedToggleMethod);
+            this.Drive3RedFullToggle.Tag = "Drive3";
             // 
             // Drive4Label
             // 
@@ -419,7 +437,8 @@ namespace BaumullerTestPanelApplication
             this.Drive4StopStartBtn.TabIndex = 25;
             this.Drive4StopStartBtn.Text = "START";
             this.Drive4StopStartBtn.UseVisualStyleBackColor = false;
-            this.Drive4StopStartBtn.Click += new System.EventHandler(this.Drive4StartStop);
+            this.Drive4StopStartBtn.CheckedChanged += new System.EventHandler(this.StopStartMethod);
+            this.Drive4StopStartBtn.Tag = "Drive4";
             // 
             // Drive4SpeedBar
             // 
@@ -428,7 +447,8 @@ namespace BaumullerTestPanelApplication
             this.Drive4SpeedBar.Name = "Drive4SpeedBar";
             this.Drive4SpeedBar.Size = new System.Drawing.Size(104, 45);
             this.Drive4SpeedBar.TabIndex = 26;
-            this.Drive4SpeedBar.ValueChanged += new System.EventHandler(this.Drive4SpeedControl);
+            this.Drive4SpeedBar.ValueChanged += new System.EventHandler(this.DriveSpeedControl);
+            this.Drive4SpeedBar.Tag = "Drive4"; 
             // 
             // Drive4SpeedText
             // 
@@ -440,6 +460,7 @@ namespace BaumullerTestPanelApplication
             this.Drive4SpeedText.TabIndex = 27;
             this.Drive4SpeedText.Text = "0";
             this.Drive4SpeedText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericalTextBoxInputValidation);
+            this.Drive4SpeedText.Tag = "Drive4";    
             // 
             // Drive4SetSpeedBtn
             // 
@@ -451,7 +472,8 @@ namespace BaumullerTestPanelApplication
             this.Drive4SetSpeedBtn.TabIndex = 28;
             this.Drive4SetSpeedBtn.Text = "SET SPEED";
             this.Drive4SetSpeedBtn.UseVisualStyleBackColor = true;
-            this.Drive4SetSpeedBtn.Click += new System.EventHandler(this.Drive4SpeedSet);
+            this.Drive4SetSpeedBtn.Click += new System.EventHandler(this.DriveSetSpeed);
+            this.Drive4SetSpeedBtn.Tag = "Drive4";  
             // 
             // Drive4RevForToggle
             // 
@@ -463,7 +485,8 @@ namespace BaumullerTestPanelApplication
             this.Drive4RevForToggle.TabIndex = 29;
             this.Drive4RevForToggle.Text = "FORWARD";
             this.Drive4RevForToggle.UseVisualStyleBackColor = true;
-            this.Drive4RevForToggle.CheckedChanged += new System.EventHandler(this.Drive4RevForChange);
+            this.Drive4RevForToggle.CheckedChanged += new System.EventHandler(this.ForwardReverseToggleMethod);
+            this.Drive4RevForToggle.Tag = "Drive4";
             // 
             // Drive4FullRedToggle
             // 
@@ -475,7 +498,8 @@ namespace BaumullerTestPanelApplication
             this.Drive4FullRedToggle.TabIndex = 30;
             this.Drive4FullRedToggle.Text = "FULL";
             this.Drive4FullRedToggle.UseVisualStyleBackColor = true;
-            this.Drive4FullRedToggle.CheckedChanged += new System.EventHandler(this.Drive4FullRed);
+            this.Drive4FullRedToggle.CheckedChanged += new System.EventHandler(this.FullReducedToggleMethod);
+            this.Drive4FullRedToggle.Tag = "Drive4";
             // 
             // Drive5Label
             // 
@@ -499,7 +523,8 @@ namespace BaumullerTestPanelApplication
             this.Drive5StopStartBtn.TabIndex = 32;
             this.Drive5StopStartBtn.Text = "START";
             this.Drive5StopStartBtn.UseVisualStyleBackColor = false;
-            this.Drive5StopStartBtn.CheckedChanged += new System.EventHandler(this.Drive5StopStart);
+            this.Drive5StopStartBtn.CheckedChanged += new System.EventHandler(this.StopStartMethod);
+            this.Drive5StopStartBtn.Tag = "Drive5";
             // 
             // Drive5SpeedBar
             // 
@@ -508,7 +533,8 @@ namespace BaumullerTestPanelApplication
             this.Drive5SpeedBar.Name = "Drive5SpeedBar";
             this.Drive5SpeedBar.Size = new System.Drawing.Size(104, 45);
             this.Drive5SpeedBar.TabIndex = 33;
-            this.Drive5SpeedBar.ValueChanged += new System.EventHandler(this.Drive5SpeedControl);
+            this.Drive5SpeedBar.ValueChanged += new System.EventHandler(this.DriveSpeedControl);
+            this.Drive5SpeedBar.Tag = "Drive5"; 
             // 
             // Drive5SpeedText
             // 
@@ -520,6 +546,7 @@ namespace BaumullerTestPanelApplication
             this.Drive5SpeedText.TabIndex = 34;
             this.Drive5SpeedText.Text = "0";
             this.Drive5SpeedText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericalTextBoxInputValidation);
+            this.Drive5SpeedText.Tag = "Drive5";
             // 
             // Drive5SpeedBtn
             // 
@@ -531,7 +558,8 @@ namespace BaumullerTestPanelApplication
             this.Drive5SpeedBtn.TabIndex = 35;
             this.Drive5SpeedBtn.Text = "SET SPEED";
             this.Drive5SpeedBtn.UseVisualStyleBackColor = true;
-            this.Drive5SpeedBtn.Click += new System.EventHandler(this.Drive5SpeedSet);
+            this.Drive5SpeedBtn.Click += new System.EventHandler(this.DriveSetSpeed);
+            this.Drive5SpeedBtn.Tag = "Drive5";
             // 
             // Drive5RevForToggle
             // 
@@ -543,7 +571,8 @@ namespace BaumullerTestPanelApplication
             this.Drive5RevForToggle.TabIndex = 36;
             this.Drive5RevForToggle.Text = "FORWARD";
             this.Drive5RevForToggle.UseVisualStyleBackColor = true;
-            this.Drive5RevForToggle.CheckedChanged += new System.EventHandler(this.Drive5RevFor);
+            this.Drive5RevForToggle.CheckedChanged += new System.EventHandler(this.ForwardReverseToggleMethod);
+            this.Drive5RevForToggle.Tag = "Drive5";
             // 
             // Drive5FullRedToggle
             // 
@@ -555,7 +584,8 @@ namespace BaumullerTestPanelApplication
             this.Drive5FullRedToggle.TabIndex = 37;
             this.Drive5FullRedToggle.Text = "FULL";
             this.Drive5FullRedToggle.UseVisualStyleBackColor = true;
-            this.Drive5FullRedToggle.CheckedChanged += new System.EventHandler(this.Drive5FullRed);
+            this.Drive5FullRedToggle.CheckedChanged += new System.EventHandler(this.FullReducedToggleMethod);
+            this.Drive5FullRedToggle.Tag = "Drive5";
             // 
             // Drive6Label
             // 
@@ -579,7 +609,8 @@ namespace BaumullerTestPanelApplication
             this.Drive6StopStartBtn.TabIndex = 39;
             this.Drive6StopStartBtn.Text = "START";
             this.Drive6StopStartBtn.UseVisualStyleBackColor = false;
-            this.Drive6StopStartBtn.CheckedChanged += new System.EventHandler(this.Drive6StopStart);
+            this.Drive6StopStartBtn.CheckedChanged += new System.EventHandler(this.StopStartMethod);
+            this.Drive6StopStartBtn.Tag = "Drive6"; 
             // 
             // Drive6SpeedBar
             // 
@@ -588,7 +619,8 @@ namespace BaumullerTestPanelApplication
             this.Drive6SpeedBar.Name = "Drive6SpeedBar";
             this.Drive6SpeedBar.Size = new System.Drawing.Size(104, 45);
             this.Drive6SpeedBar.TabIndex = 40;
-            this.Drive6SpeedBar.ValueChanged += new System.EventHandler(this.Drive6SpeedControl);
+            this.Drive6SpeedBar.ValueChanged += new System.EventHandler(this.DriveSpeedControl);
+            this.Drive6SpeedBar.Tag = "Drive6";
             // 
             // Drive6SpeedText
             // 
@@ -600,6 +632,7 @@ namespace BaumullerTestPanelApplication
             this.Drive6SpeedText.TabIndex = 41;
             this.Drive6SpeedText.Text = "0";
             this.Drive6SpeedText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericalTextBoxInputValidation);
+            this.Drive6SpeedText.Tag = "Drive6";
             // 
             // Drive6SetSpeedBtn
             // 
@@ -611,7 +644,8 @@ namespace BaumullerTestPanelApplication
             this.Drive6SetSpeedBtn.TabIndex = 42;
             this.Drive6SetSpeedBtn.Text = "SET SPEED";
             this.Drive6SetSpeedBtn.UseVisualStyleBackColor = true;
-            this.Drive6SetSpeedBtn.Click += new System.EventHandler(this.Drive6SetSpeed);
+            this.Drive6SetSpeedBtn.Click += new System.EventHandler(this.DriveSetSpeed);
+            this.Drive6SetSpeedBtn.Tag = "Drive6";
             // 
             // Drive6RevForToggle
             // 
@@ -623,7 +657,8 @@ namespace BaumullerTestPanelApplication
             this.Drive6RevForToggle.TabIndex = 43;
             this.Drive6RevForToggle.Text = "FORWARD";
             this.Drive6RevForToggle.UseVisualStyleBackColor = true;
-            this.Drive6RevForToggle.CheckedChanged += new System.EventHandler(this.Drive6ForRev);
+            this.Drive6RevForToggle.CheckedChanged += new System.EventHandler(this.ForwardReverseToggleMethod);
+            this.Drive6RevForToggle.Tag = "Drive6";
             // 
             // Drive6RedFullToggle
             // 
@@ -635,7 +670,8 @@ namespace BaumullerTestPanelApplication
             this.Drive6RedFullToggle.TabIndex = 44;
             this.Drive6RedFullToggle.Text = "FULL";
             this.Drive6RedFullToggle.UseVisualStyleBackColor = true;
-            this.Drive6RedFullToggle.CheckedChanged += new System.EventHandler(this.Drive6RedFull);
+            this.Drive6RedFullToggle.CheckedChanged += new System.EventHandler(this.FullReducedToggleMethod);
+            this.Drive6RedFullToggle.Tag = "Drive6";
             // 
             // Drive3HealthTextBox
             // 
@@ -760,6 +796,7 @@ namespace BaumullerTestPanelApplication
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Tag = "Drive6";
             this.Text = "BaumullerTestPanel";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
