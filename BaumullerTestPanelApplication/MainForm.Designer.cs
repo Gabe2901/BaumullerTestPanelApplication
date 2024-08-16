@@ -169,7 +169,6 @@ namespace BaumullerTestPanelApplication
             this.Drive1StopStartBtn.Text = "START";
             this.Drive1StopStartBtn.UseVisualStyleBackColor = false;
             this.Drive1StopStartBtn.CheckedChanged += new System.EventHandler(this.Drive1StopStart);
-            this.Drive1StopStartBtn.Click += new System.EventHandler(this.StopStart1Action);
             // 
             // Drive1Label
             // 

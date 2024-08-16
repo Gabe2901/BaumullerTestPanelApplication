@@ -1,19 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using ScottPlot.WinForms;
 
 namespace BaumullerTestPanelApplication
 {
     public partial class MainForm : Form
     {
+        //VARIABLES
+        int Drive1SpeedLimit = 2500;
+        int Drive2SpeedLimit = 2500;
+        int Drive3SpeedLimit = 2500;
+        int Drive4SpeedLimit = 2500;
+        int Drive5SpeedLimit = 2500;
+        int Drive6SpeedLimit = 2500;
+
+        //Graph window
+        TestGraphWindow testGraphWindow = new TestGraphWindow();
+
+        //Help Menu
+        HelpWindow helpWindow = new HelpWindow();
+
+
         //TODO: add drive health check
         //TODO: setup modular code for drive control so it isn't this massive clump of spaghetti code for zero reason
         public MainForm()
@@ -36,16 +44,9 @@ namespace BaumullerTestPanelApplication
             Application.Exit();
         }
 
-        private void StopStart1Action(object sender, EventArgs e)
-        {
-
-        }
-
-        TestGraphWindow testGraphWindow = new TestGraphWindow();
-
         private void Drive1StopStart(object sender, EventArgs e)
         {
-            
+
             if (Drive1StopStartBtn.Checked)
             {
                 Drive1StopStartBtn.Text = ("STOP");
@@ -56,7 +57,7 @@ namespace BaumullerTestPanelApplication
                 Drive1ForRevToggle.Enabled = false;
                 Drive1FullRedCurrToggle.Enabled = false;
                 Drive1SpeedText.Enabled = false;
-                
+
 
                 //TODO: PUT START DRIVE 1 FUNCTION HERE
             }
@@ -85,9 +86,9 @@ namespace BaumullerTestPanelApplication
 
         private void Drive1SpeedBtnSet(object sender, EventArgs e)
         {
-            if(Convert.ToInt32(Drive1SpeedText.Text) > 2500)
+            if (Convert.ToInt32(Drive1SpeedText.Text) > Drive1SpeedLimit)
             {
-                Drive1SpeedText.Text = "2500";
+                Drive1SpeedText.Text = Convert.ToString(Drive1SpeedLimit);
             }
             Drive1SpeedBar.Value = Convert.ToInt32(Drive1SpeedText.Text);
         }
@@ -110,7 +111,8 @@ namespace BaumullerTestPanelApplication
 
         private void Drive1FullRed(object sender, EventArgs e)
         {
-            if (Drive1FullRedCurrToggle.Checked) {
+            if (Drive1FullRedCurrToggle.Checked)
+            {
                 Drive1FullRedCurrToggle.Text = "REDUCED";
             }
             else
@@ -124,7 +126,8 @@ namespace BaumullerTestPanelApplication
             if (Drive2StopStartBtn.Checked)
             {
 
-                if (Convert.ToInt32(TimeControlTextBox.Text) > 0) {
+                if (Convert.ToInt32(TimeControlTextBox.Text) > 0)
+                {
                     timer1.Start();
                     TimeControlTextBox.Enabled = false;
                     if (testGraphWindow == null || testGraphWindow.IsDisposed)
@@ -147,11 +150,13 @@ namespace BaumullerTestPanelApplication
                     MessageBox.Show("Please enter a time value to start the test.");
                     Drive2StopStartBtn.Checked = false;
                 }
-                    
+
 
                 //TODO: DRIVE 2 START METHOD
 
-            } else {
+            }
+            else
+            {
                 timer1.Stop();
                 TimeControlTextBox.Enabled = true;
                 testGraphWindow.Stop();
@@ -175,15 +180,17 @@ namespace BaumullerTestPanelApplication
 
         private void Drive2SpeedSet(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(Drive2SpeedText.Text) > 2500) {
-                Drive2SpeedText.Text = "2500";
+            if (Convert.ToInt32(Drive2SpeedText.Text) > Drive2SpeedLimit)
+            {
+                Drive2SpeedText.Text = Convert.ToString(Drive2SpeedLimit);
             }
             Drive2SpeedBar.Value = Convert.ToInt32(Drive2SpeedText.Text);
         }
 
         private void Drive2ForRevChange(object sender, EventArgs e)
         {
-            if (Drive2ForRevToggle.Checked) {
+            if (Drive2ForRevToggle.Checked)
+            {
                 Drive2ForRevToggle.Text = "REVERSE";
             }
             else
@@ -194,7 +201,8 @@ namespace BaumullerTestPanelApplication
 
         private void Drive2FullRed(object sender, EventArgs e)
         {
-            if (Drive2FullRedToggle.Checked) {
+            if (Drive2FullRedToggle.Checked)
+            {
                 Drive2FullRedToggle.Text = "REDUCED";
             }
             else
@@ -210,7 +218,8 @@ namespace BaumullerTestPanelApplication
 
         private void Drive3StopStart(object sender, EventArgs e)
         {
-            if (Drive3StopStartBtn.Checked) {
+            if (Drive3StopStartBtn.Checked)
+            {
                 //TODO: Drive 3 stop start method
                 Drive3StopStartBtn.Text = "STOP";
                 Drive3StopStartBtn.BackColor = Color.Red;
@@ -236,9 +245,9 @@ namespace BaumullerTestPanelApplication
 
         private void Drive3SpeedSet(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(Drive3SpeedText.Text) > 2500)
+            if (Convert.ToInt32(Drive3SpeedText.Text) > Drive3SpeedLimit)
             {
-                Drive3SpeedText.Text = "2500";
+                Drive3SpeedText.Text = Convert.ToString(Drive3SpeedLimit);
             }
             Drive3SpeedBar.Value = Convert.ToInt32(Drive3SpeedText.Text);
         }
@@ -262,7 +271,8 @@ namespace BaumullerTestPanelApplication
 
         private void Drive3RedFull(object sender, EventArgs e)
         {
-            if (Drive3RedFullToggle.Checked) {
+            if (Drive3RedFullToggle.Checked)
+            {
                 Drive3RedFullToggle.Text = "REDUCED";
             }
             else
@@ -278,9 +288,9 @@ namespace BaumullerTestPanelApplication
         }
         private void Drive4SpeedSet(object sender, EventArgs e)
         {
-            if(Convert.ToInt32(Drive4SpeedText.Text) > 2500)
+            if (Convert.ToInt32(Drive4SpeedText.Text) > Drive4SpeedLimit)
             {
-                Drive4SpeedText.Text = "2500";
+                Drive4SpeedText.Text = Convert.ToString(Drive4SpeedLimit);
             }
 
             Drive4SpeedBar.Value = Convert.ToInt32(Drive4SpeedText.Text);
@@ -288,7 +298,8 @@ namespace BaumullerTestPanelApplication
 
         private void Drive4RevForChange(object sender, EventArgs e)
         {
-            if (Drive4RevForToggle.Checked) {
+            if (Drive4RevForToggle.Checked)
+            {
                 Drive4RevForToggle.Text = "REVERSE";
             }
             else
@@ -299,7 +310,8 @@ namespace BaumullerTestPanelApplication
 
         private void Drive4FullRed(object sender, EventArgs e)
         {
-            if (Drive4FullRedToggle.Checked) {
+            if (Drive4FullRedToggle.Checked)
+            {
                 Drive4FullRedToggle.Text = "REDUCED";
             }
             else
@@ -338,7 +350,8 @@ namespace BaumullerTestPanelApplication
 
         private void Drive5StopStart(object sender, EventArgs e)
         {
-            if (Drive5StopStartBtn.Checked) {
+            if (Drive5StopStartBtn.Checked)
+            {
                 //TODO: DRIVE 5 STOP START FUNCTION
                 Drive5StopStartBtn.Text = "STOP";
                 Drive5StopStartBtn.BackColor = Color.Red;
@@ -369,16 +382,17 @@ namespace BaumullerTestPanelApplication
 
         private void Drive5SpeedSet(object sender, EventArgs e)
         {
-            if(Convert.ToInt32(Drive5SpeedText.Text) > 2500)
+            if (Convert.ToInt32(Drive5SpeedText.Text) > Drive5SpeedLimit)
             {
-                Drive5SpeedText.Text = "2500";
+                Drive5SpeedText.Text = Convert.ToString(Drive5SpeedLimit);
             }
             Drive5SpeedBar.Value = Convert.ToInt32(Drive5SpeedText.Text);
         }
 
         private void Drive5RevFor(object sender, EventArgs e)
         {
-            if (Drive5RevForToggle.Checked) {
+            if (Drive5RevForToggle.Checked)
+            {
                 Drive5RevForToggle.Text = "REVERSE";
             }
             else
@@ -389,7 +403,8 @@ namespace BaumullerTestPanelApplication
 
         private void Drive5FullRed(object sender, EventArgs e)
         {
-            if (Drive5FullRedToggle.Checked) {
+            if (Drive5FullRedToggle.Checked)
+            {
                 Drive5FullRedToggle.Text = "REDUCED";
             }
             else
@@ -426,9 +441,9 @@ namespace BaumullerTestPanelApplication
         }
         private void Drive6SetSpeed(object sender, EventArgs e)
         {
-            if(Convert.ToInt32(Drive6SpeedText.Text) > 2500)
+            if (Convert.ToInt32(Drive6SpeedText.Text) > Drive6SpeedLimit)
             {
-                Drive6SpeedText.Text = "2500";
+                Drive6SpeedText.Text = Convert.ToString(Drive6SpeedLimit);
             }
             Drive6SpeedBar.Value = Convert.ToInt32(Drive6SpeedText.Text);
         }
@@ -453,7 +468,8 @@ namespace BaumullerTestPanelApplication
 
         private void Drive6RedFull(object sender, EventArgs e)
         {
-            if (Drive6RedFullToggle.Checked) {
+            if (Drive6RedFullToggle.Checked)
+            {
                 Drive6RedFullToggle.Text = "REDUCED";
             }
             else
@@ -469,7 +485,6 @@ namespace BaumullerTestPanelApplication
 
         private void HelpMenuItemOnClick(object sender, EventArgs e)
         {
-            HelpWindow helpWindow = new HelpWindow();
             helpWindow.Show();
         }
 
@@ -489,7 +504,7 @@ namespace BaumullerTestPanelApplication
             {
                 EnteredTime = EnteredTime - 1;
                 TimeControlTextBox.Text = Convert.ToString(EnteredTime);
-                
+
             }
             else
             {
