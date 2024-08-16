@@ -11,7 +11,7 @@ namespace BaumullerTestPanelApplication
     public partial class MainForm : Form
     {
         //VARIABLES
-        List<int> DriveSpeedLimitList = new List<int> { 2500, 2500, 2500, 2500, 2500, 2500 };
+        List<int> DriveSpeedList = new List<int> { 0, 0, 0, 0, 0, 0 };
 
         //Graph window
         TestGraphWindow testGraphWindow = new TestGraphWindow();
@@ -51,16 +51,24 @@ namespace BaumullerTestPanelApplication
         {
             Button senderObject = (Button)sender;
             string DriveTag = (string)senderObject.Tag;
+
+            int DriveSpeed = 0;
+
             foreach (Control c in this.Controls)
             {
                 if ((string)c.Tag == DriveTag)
                 {
                     if (c.GetType() == typeof(TextBox)) {
-                        DriveSpeedLimitList[GetDriveNumberFromControl(c) - 1] = Convert.ToInt32(((TextBox)c).Text);
+                        DriveSpeed = Convert.ToInt32(((TextBox)c).Text);
+                        if(DriveSpeed > 2500)
+                        {
+                            DriveSpeed = 2500;
+                        }
+                        DriveSpeedList[GetDriveNumberFromControl(c) - 1] = DriveSpeed;
                     }
                     if (c.GetType() == typeof(TrackBar))
                     {
-                        ((TrackBar)c).Value = DriveSpeedLimitList[GetDriveNumberFromControl(c) - 1];
+                        ((TrackBar)c).Value = DriveSpeedList[GetDriveNumberFromControl(c) - 1];
                     }
                 }
             }
@@ -75,11 +83,11 @@ namespace BaumullerTestPanelApplication
                 {
                     if (c.GetType() == typeof(TrackBar))
                     {
-                        DriveSpeedLimitList[GetDriveNumberFromControl(c) - 1] = Convert.ToInt32(((TrackBar)c).Value);
+                        DriveSpeedList[GetDriveNumberFromControl(c) - 1] = Convert.ToInt32(((TrackBar)c).Value);
                     }
                     if (c.GetType() == typeof(TextBox))
                     {
-                        ((TextBox)c).Text = Convert.ToString(DriveSpeedLimitList[GetDriveNumberFromControl(c) - 1]);
+                        ((TextBox)c).Text = Convert.ToString(DriveSpeedList[GetDriveNumberFromControl(c) - 1]);
                     }
                 }
 
