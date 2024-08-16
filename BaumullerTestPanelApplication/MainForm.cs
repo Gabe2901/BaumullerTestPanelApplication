@@ -21,7 +21,7 @@ namespace BaumullerTestPanelApplication
 
 
         //TODO: add drive health check
-        //TODO: setup modular code for drive control so it isn't this massive clump of spaghetti code for zero reason
+        
         public MainForm()
         {
             InitializeComponent();
@@ -33,7 +33,7 @@ namespace BaumullerTestPanelApplication
 
         private void EstopButtonOnClick(object sender, EventArgs e)
         {
-            MessageBox.Show("Emergency stop active, click ok to emergency stop circuit.");
+            MessageBox.Show("Emergency stop active, click ok to reset emergency stop circuit.");
             //TODO: Setup estop activation
         }
 
@@ -52,7 +52,7 @@ namespace BaumullerTestPanelApplication
             Button senderObject = (Button)sender;
             string DriveTag = (string)senderObject.Tag;
 
-            int DriveSpeed = 0;
+            int DriveSpeed = DriveSpeedList[GetDriveNumberFromControl(senderObject) - 1];
 
             foreach (Control c in this.Controls)
             {
@@ -149,7 +149,7 @@ namespace BaumullerTestPanelApplication
             
                 foreach (Control c in this.Controls)
                 {
-                    if ((string)c.Tag == DriveTag & !(c is CheckBox))
+                    if ((string)c.Tag == DriveTag & !(c == checkBox))
                     {
                         c.Enabled = !checkBox.Checked;
                     }
@@ -181,6 +181,7 @@ namespace BaumullerTestPanelApplication
                 checkBox.BackColor = Color.Green;
                 timer1.Stop();
                 testGraphWindow.Stop();
+                TimeControlTextBox.Enabled = true;
 
             }
         }
