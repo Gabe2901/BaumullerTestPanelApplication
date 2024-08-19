@@ -2,8 +2,6 @@
 using ScottPlot.Plottables;
 using System;
 using System.Data;
-using System.Data.SQLite;
-using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -29,9 +27,6 @@ namespace BaumullerTestPanelApplication
         readonly ScottPlot.DataGenerators.RandomWalker Walker3 = new(2);
         readonly ScottPlot.DataGenerators.RandomWalker Walker4 = new(3);
 
-        //readonly ScottPlot.Plottables.VerticalLine VLine;
-        //readonly ScottPlot.Plottables.VerticalLine VLine2;
-
         DataHandler dataHandler = new DataHandler();
         
 
@@ -43,7 +38,7 @@ namespace BaumullerTestPanelApplication
             AddNewDataTimer.Start();
             UpdatePlotTimer.Start();
             dataHandler.CreateDatabase();
-            dataHandler.CreateTable();
+            dataHandler.CreateTemperatureTable();
             
         }
 
@@ -65,7 +60,6 @@ namespace BaumullerTestPanelApplication
 
             Streamer1 = formsPlot1.Plot.Add.DataStreamer(1000);
             Streamer2 = formsPlot1.Plot.Add.DataStreamer(1000);
-            //VLine = formsPlot1.Plot.Add.VerticalLine(0, 2, ScottPlot.Colors.Red);
 
             Streamer1.LegendText = "Temperature 1";
             Streamer2.LegendText = "Temperature 2";
@@ -180,8 +174,6 @@ namespace BaumullerTestPanelApplication
                     formsPlot2.Refresh();
                 }
             }
-            // disable mouse interaction by default
-            //formsPlot1.Interaction.Disable();
 
             // only show marker button in scroll mode
             btnMark.Visible = false;
@@ -214,11 +206,8 @@ namespace BaumullerTestPanelApplication
                 
                 if (Streamer1.HasNewData)
                 {
-                    Debug.WriteLine((Streamer1.Data.Data)[i]);
-                    dataHandler.InsertTemperatureOne((Streamer1.Data.Data)[i]);
+                    dataHandler.InsertTemperatureData((Streamer1.Data.Data)[i], (Streamer2.Data.Data)[i], (Streamer3.Data.Data)[i], (Streamer4.Data.Data)[i]);
                     formsPlot1.Plot.Title($"Processed {Streamer1.Data.CountTotal:N0} points");
-                    //VLine.IsVisible = Streamer1.Renderer is ScottPlot.DataViews.Wipe;
-                    //VLine.Position = Streamer1.Data.NextIndex * Streamer1.Data.SamplePeriod + Streamer1.Data.OffsetX;
                     formsPlot1.Refresh();
                     i++;
                 }
@@ -280,9 +269,6 @@ namespace BaumullerTestPanelApplication
             //FORMS PLOT 2
             Streamer3 = formsPlot2.Plot.Add.DataStreamer(1000);
             Streamer4 = formsPlot2.Plot.Add.DataStreamer(1000);
-            //VLine2 = formsPlot2.Plot.Add.VerticalLine(0, 2, ScottPlot.Colors.Red);
-
-     
 
             // only show marker button in scroll mode
             btnMark.Visible = false;
@@ -314,8 +300,6 @@ namespace BaumullerTestPanelApplication
                 if (Streamer3.HasNewData)
                 {
                     formsPlot2.Plot.Title($"Processed {Streamer3.Data.CountTotal:N0} points");
-                    //VLine2.IsVisible = Streamer3.Renderer is ScottPlot.DataViews.Wipe;
-                    //VLine2.Position = Streamer3.Data.NextIndex * Streamer3.Data.SamplePeriod + Streamer3.Data.OffsetX;
                     formsPlot2.Refresh();
                 }
             };
