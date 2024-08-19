@@ -26,6 +26,8 @@ namespace BaumullerTestPanelApplication
             Drive2HealthTextBox.Text = "DRIVE 2 = OK";
             Drive3HealthTextBox.Text = "DRIVE 3 = OK";
             Drive5HealthTextBox.Text = "DRIVE 5 = OK";
+
+            
         }
 
         private void EstopButtonOnClick(object sender, EventArgs e)
@@ -122,6 +124,7 @@ namespace BaumullerTestPanelApplication
             {
                 EnteredTime = EnteredTime - 1;
                 TimeControlTextBox.Text = Convert.ToString(EnteredTime);
+                
 
             }
             else

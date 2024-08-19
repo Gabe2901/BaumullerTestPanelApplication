@@ -2,6 +2,8 @@
 using ScottPlot.Plottables;
 using System;
 using System.Data;
+using System.Data.SQLite;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -14,8 +16,8 @@ namespace BaumullerTestPanelApplication
         public string Description => "Plots live streaming data as a fixed-width line plot, " +
             "shifting old data out as new data comes in.";
 
-        readonly System.Windows.Forms.Timer AddNewDataTimer = new() { Interval = 10, Enabled = false };
-        readonly System.Windows.Forms.Timer UpdatePlotTimer = new() { Interval = 50, Enabled = false };
+        readonly System.Windows.Forms.Timer AddNewDataTimer = new() { Interval = 500, Enabled = false };
+        readonly System.Windows.Forms.Timer UpdatePlotTimer = new() { Interval = 500, Enabled = false };
 
         readonly ScottPlot.Plottables.DataStreamer Streamer1;
         readonly ScottPlot.Plottables.DataStreamer Streamer2;
@@ -30,18 +32,26 @@ namespace BaumullerTestPanelApplication
         //readonly ScottPlot.Plottables.VerticalLine VLine;
         //readonly ScottPlot.Plottables.VerticalLine VLine2;
 
+        DataHandler dataHandler = new DataHandler();
+        
+
+
         AxisLine? PlottableBeingDragged = null;
 
         public void Start()
         {
             AddNewDataTimer.Start();
             UpdatePlotTimer.Start();
+            dataHandler.CreateDatabase();
+            dataHandler.CreateTable();
+            
         }
 
         public void Stop()
         {
             AddNewDataTimer.Stop();
             UpdatePlotTimer.Stop();
+            dataHandler.CloseConnection();
         }
         public TestGraphWindow()
         {
@@ -197,15 +207,20 @@ namespace BaumullerTestPanelApplication
                     .ForEach(m => formsPlot1.Plot.Remove(m));
             };
 
+            int i = 0;
             // setup a timer to request a render periodically
             UpdatePlotTimer.Tick += (s, e) =>
             {
+                
                 if (Streamer1.HasNewData)
                 {
+                    Debug.WriteLine((Streamer1.Data.Data)[i]);
+                    dataHandler.InsertTemperatureOne((Streamer1.Data.Data)[i]);
                     formsPlot1.Plot.Title($"Processed {Streamer1.Data.CountTotal:N0} points");
                     //VLine.IsVisible = Streamer1.Renderer is ScottPlot.DataViews.Wipe;
                     //VLine.Position = Streamer1.Data.NextIndex * Streamer1.Data.SamplePeriod + Streamer1.Data.OffsetX;
                     formsPlot1.Refresh();
+                    i++;
                 }
             };
 
