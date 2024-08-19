@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
-using System.Reflection.Emit;
-using System.Runtime.Remoting.Channels;
 using System.Windows.Forms;
 
 namespace BaumullerTestPanelApplication

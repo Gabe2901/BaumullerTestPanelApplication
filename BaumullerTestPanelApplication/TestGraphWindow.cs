@@ -27,7 +27,8 @@ namespace BaumullerTestPanelApplication
         readonly ScottPlot.DataGenerators.RandomWalker Walker3 = new(2);
         readonly ScottPlot.DataGenerators.RandomWalker Walker4 = new(3);
 
-        readonly ScottPlot.Plottables.VerticalLine VLine;
+        //readonly ScottPlot.Plottables.VerticalLine VLine;
+        //readonly ScottPlot.Plottables.VerticalLine VLine2;
 
         AxisLine? PlottableBeingDragged = null;
 
@@ -54,22 +55,28 @@ namespace BaumullerTestPanelApplication
 
             Streamer1 = formsPlot1.Plot.Add.DataStreamer(1000);
             Streamer2 = formsPlot1.Plot.Add.DataStreamer(1000);
-            VLine = formsPlot1.Plot.Add.VerticalLine(0, 2, ScottPlot.Colors.Red);
+            //VLine = formsPlot1.Plot.Add.VerticalLine(0, 2, ScottPlot.Colors.Red);
 
             Streamer1.LegendText = "Temperature 1";
             Streamer2.LegendText = "Temperature 2";
 
             //Vertical lines
-            var v1 = formsPlot1.Plot.Add.VerticalLine(23);
-            v1.IsDraggable = true;
-
-            var h1 = formsPlot1.Plot.Add.HorizontalLine(0.42);
+            var h1 = formsPlot1.Plot.Add.HorizontalLine(23, 2,ScottPlot.Colors.Red,ScottPlot.LinePattern.Dashed);
             h1.IsDraggable = true;
+
+            var h2 = formsPlot2.Plot.Add.HorizontalLine(23, 2, ScottPlot.Colors.Red, ScottPlot.LinePattern.Dashed);
+            h2.IsDraggable = true;
+
+
 
             //Plot interactivity for lines
             formsPlot1.MouseDown += FormsPlot1_MouseDown;
             formsPlot1.MouseUp += FormsPlot1_MouseUp;
             formsPlot1.MouseMove += FormsPlot1_MouseMove;
+
+            formsPlot2.MouseDown += FormsPlot2_MouseDown;
+            formsPlot2.MouseUp += FormsPlot2_MouseUp;
+            formsPlot2.MouseMove += FormsPlot2_MouseMove;
 
             void FormsPlot1_MouseDown(object? sender, MouseEventArgs e)
             {
@@ -117,7 +124,52 @@ namespace BaumullerTestPanelApplication
                     formsPlot1.Refresh();
                 }
             }
+            void FormsPlot2_MouseDown(object? sender, MouseEventArgs e)
+            {
+                var lineUnderMouse = GetLineUnderMouse2(e.X, e.Y);
+                if (lineUnderMouse is not null)
+                {
+                    PlottableBeingDragged = lineUnderMouse;
+                    formsPlot2.Interaction.Disable(); // disable panning while dragging
+                }
+            }
 
+            void FormsPlot2_MouseUp(object? sender, MouseEventArgs e)
+            {
+                PlottableBeingDragged = null;
+                formsPlot2.Interaction.Enable(); // enable panning again
+                formsPlot2.Refresh();
+            }
+
+            void FormsPlot2_MouseMove(object? sender, MouseEventArgs e)
+            {
+                // this rectangle is the area around the mouse in coordinate units
+                CoordinateRect rect = formsPlot2.Plot.GetCoordinateRect(e.X, e.Y, radius: 10);
+
+                if (PlottableBeingDragged is null)
+                {
+                    // set cursor based on what's beneath the plottable
+                    var lineUnderMouse = GetLineUnderMouse2(e.X, e.Y);
+                    if (lineUnderMouse is null) Cursor = Cursors.Default;
+                    else if (lineUnderMouse.IsDraggable && lineUnderMouse is VerticalLine) Cursor = Cursors.SizeWE;
+                    else if (lineUnderMouse.IsDraggable && lineUnderMouse is HorizontalLine) Cursor = Cursors.SizeNS;
+                }
+                else
+                {
+                    // update the position of the plottable being dragged
+                    if (PlottableBeingDragged is HorizontalLine hl)
+                    {
+                        hl.Y = rect.VerticalCenter;
+                        hl.Text = $"{hl.Y:0.00}";
+                    }
+                    else if (PlottableBeingDragged is VerticalLine vl)
+                    {
+                        vl.X = rect.HorizontalCenter;
+                        vl.Text = $"{vl.X:0.00}";
+                    }
+                    formsPlot2.Refresh();
+                }
+            }
             // disable mouse interaction by default
             //formsPlot1.Interaction.Disable();
 
@@ -151,8 +203,8 @@ namespace BaumullerTestPanelApplication
                 if (Streamer1.HasNewData)
                 {
                     formsPlot1.Plot.Title($"Processed {Streamer1.Data.CountTotal:N0} points");
-                    VLine.IsVisible = Streamer1.Renderer is ScottPlot.DataViews.Wipe;
-                    VLine.Position = Streamer1.Data.NextIndex * Streamer1.Data.SamplePeriod + Streamer1.Data.OffsetX;
+                    //VLine.IsVisible = Streamer1.Renderer is ScottPlot.DataViews.Wipe;
+                    //VLine.Position = Streamer1.Data.NextIndex * Streamer1.Data.SamplePeriod + Streamer1.Data.OffsetX;
                     formsPlot1.Refresh();
                 }
             };
@@ -213,10 +265,9 @@ namespace BaumullerTestPanelApplication
             //FORMS PLOT 2
             Streamer3 = formsPlot2.Plot.Add.DataStreamer(1000);
             Streamer4 = formsPlot2.Plot.Add.DataStreamer(1000);
-            VLine = formsPlot2.Plot.Add.VerticalLine(0, 2, ScottPlot.Colors.Red);
+            //VLine2 = formsPlot2.Plot.Add.VerticalLine(0, 2, ScottPlot.Colors.Red);
 
-            // disable mouse interaction by default
-            formsPlot2.Interaction.Disable();
+     
 
             // only show marker button in scroll mode
             btnMark.Visible = false;
@@ -248,8 +299,8 @@ namespace BaumullerTestPanelApplication
                 if (Streamer3.HasNewData)
                 {
                     formsPlot2.Plot.Title($"Processed {Streamer3.Data.CountTotal:N0} points");
-                    VLine.IsVisible = Streamer3.Renderer is ScottPlot.DataViews.Wipe;
-                    VLine.Position = Streamer3.Data.NextIndex * Streamer3.Data.SamplePeriod + Streamer3.Data.OffsetX;
+                    //VLine2.IsVisible = Streamer3.Renderer is ScottPlot.DataViews.Wipe;
+                    //VLine2.Position = Streamer3.Data.NextIndex * Streamer3.Data.SamplePeriod + Streamer3.Data.OffsetX;
                     formsPlot2.Refresh();
                 }
             };
@@ -260,6 +311,19 @@ namespace BaumullerTestPanelApplication
             CoordinateRect rect = formsPlot1.Plot.GetCoordinateRect(x, y, radius: 10);
 
             foreach (AxisLine axLine in formsPlot1.Plot.GetPlottables<AxisLine>().Reverse())
+            {
+                if (axLine.IsUnderMouse(rect))
+                    return axLine;
+            }
+
+            return null;
+        }
+
+        private AxisLine? GetLineUnderMouse2(float x, float y)
+        {
+            CoordinateRect rect = formsPlot2.Plot.GetCoordinateRect(x, y, radius: 10);
+
+            foreach (AxisLine axLine in formsPlot2.Plot.GetPlottables<AxisLine>().Reverse())
             {
                 if (axLine.IsUnderMouse(rect))
                     return axLine;
