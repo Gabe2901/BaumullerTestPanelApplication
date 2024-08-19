@@ -11,7 +11,7 @@ namespace BaumullerTestPanelApplication
     public partial class MainForm : Form
     {
         //VARIABLES
-        List<int> DriveSpeedList = new List<int> { 0, 0, 0, 0, 0, 0 };
+        List<int> DriveSpeedList = new List<int> { 2500, 2500, 2500, 2500, 2500, 2500 };
 
         //Graph window
         TestGraphWindow testGraphWindow = new TestGraphWindow();
@@ -52,7 +52,8 @@ namespace BaumullerTestPanelApplication
             Button senderObject = (Button)sender;
             string DriveTag = (string)senderObject.Tag;
 
-            int DriveSpeed = DriveSpeedList[GetDriveNumberFromControl(senderObject) - 1];
+            int DriveSpeedLimit = DriveSpeedList[GetDriveNumberFromControl(senderObject) - 1];
+            int DriveSpeed = 0;
 
             foreach (Control c in this.Controls)
             {
@@ -60,15 +61,22 @@ namespace BaumullerTestPanelApplication
                 {
                     if (c.GetType() == typeof(TextBox)) {
                         DriveSpeed = Convert.ToInt32(((TextBox)c).Text);
-                        if(DriveSpeed > 2500)
+                        if(DriveSpeed > DriveSpeedLimit)
                         {
-                            DriveSpeed = 2500;
+                            DriveSpeed = DriveSpeedLimit;
+                            ((TextBox)c).Text = Convert.ToString(DriveSpeed);
                         }
-                        DriveSpeedList[GetDriveNumberFromControl(c) - 1] = DriveSpeed;
                     }
+                    
+                }
+            }
+            foreach (Control c in this.Controls)
+            {
+                if ((string)c.Tag == DriveTag)
+                {
                     if (c.GetType() == typeof(TrackBar))
                     {
-                        ((TrackBar)c).Value = DriveSpeedList[GetDriveNumberFromControl(c) - 1];
+                        ((TrackBar)c).Value = DriveSpeed;
                     }
                 }
             }
@@ -77,17 +85,14 @@ namespace BaumullerTestPanelApplication
         {
             TrackBar senderObject = (TrackBar)sender;
             string DriveTag = (string)senderObject.Tag;
+            int DriveSpeed = senderObject.Value;
             foreach (Control c in this.Controls)
             {
                 if ((string)c.Tag == DriveTag)
                 {
-                    if (c.GetType() == typeof(TrackBar))
-                    {
-                        DriveSpeedList[GetDriveNumberFromControl(c) - 1] = Convert.ToInt32(((TrackBar)c).Value);
-                    }
                     if (c.GetType() == typeof(TextBox))
                     {
-                        ((TextBox)c).Text = Convert.ToString(DriveSpeedList[GetDriveNumberFromControl(c) - 1]);
+                        ((TextBox)c).Text = Convert.ToString(DriveSpeed);
                     }
                 }
 
