@@ -32,7 +32,7 @@ namespace BaumullerTestPanelApplication
             using (SQLiteConnection m_dbConnection = new SQLiteConnection($"Data Source={dbPath};Version=3;"))
             {
                 m_dbConnection.Open();
-                string sql = "insert into BaumullerTestPanelApplication (Temperature_One) values (" + data + ")";
+                string sql = "insert into BaumullerTestPanelApplication (Temperature_One) values (" + Convert.ToString(data) + ")";
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
                 command.ExecuteNonQuery();
                 CloseConnection();

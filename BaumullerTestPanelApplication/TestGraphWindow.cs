@@ -16,8 +16,8 @@ namespace BaumullerTestPanelApplication
         public string Description => "Plots live streaming data as a fixed-width line plot, " +
             "shifting old data out as new data comes in.";
 
-        readonly System.Windows.Forms.Timer AddNewDataTimer = new() { Interval = 500, Enabled = false };
-        readonly System.Windows.Forms.Timer UpdatePlotTimer = new() { Interval = 500, Enabled = false };
+        readonly System.Windows.Forms.Timer AddNewDataTimer = new() { Interval = 100, Enabled = false };
+        readonly System.Windows.Forms.Timer UpdatePlotTimer = new() { Interval = 250, Enabled = false };
 
         readonly ScottPlot.Plottables.DataStreamer Streamer1;
         readonly ScottPlot.Plottables.DataStreamer Streamer2;
