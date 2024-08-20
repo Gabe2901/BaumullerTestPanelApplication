@@ -9,7 +9,7 @@ namespace BaumullerTestPanelApplication
     internal class DataHandler
     {
         // Declare the connectionString as a field
-        readonly string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BaumullerTestPanelApplication.db");
+        readonly string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), DateTime.Now.ToString("hh_m_ddMMMyy")+ "DATABASE.db");
         // Constructor
         public void CreateDatabase()
         {
