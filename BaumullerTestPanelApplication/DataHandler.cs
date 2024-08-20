@@ -15,7 +15,7 @@ namespace BaumullerTestPanelApplication
         {
             SQLiteConnection.CreateFile(dbPath);
         }
-        public void CreateTemperatureTable()
+        public void CreateTable()
         {
             using (SQLiteConnection m_dbConnection = new SQLiteConnection($"Data Source={dbPath};Version=3;"))
             {
@@ -28,7 +28,7 @@ namespace BaumullerTestPanelApplication
             }
         }
 
-        public void InsertTemperatureData(double temp1, double temp2, double driveEnd1, double driveEnd2)
+        public void InsertData(double temp1, double temp2, double driveEnd1, double driveEnd2)
         {
             using (SQLiteConnection m_dbConnection = new SQLiteConnection($"Data Source={dbPath};Version=3;"))
             {

@@ -38,7 +38,7 @@ namespace BaumullerTestPanelApplication
             AddNewDataTimer.Start();
             UpdatePlotTimer.Start();
             dataHandler.CreateDatabase();
-            dataHandler.CreateTemperatureTable();
+            dataHandler.CreateTable();
 
         }
 
@@ -208,14 +208,14 @@ namespace BaumullerTestPanelApplication
                 {
                     if (i < Streamer1.Data.Data.Length && i < Streamer2.Data.Data.Length && i < Streamer3.Data.Data.Length && i < Streamer4.Data.Data.Length)
                     {
-                        dataHandler.InsertTemperatureData((Streamer1.Data.Data)[i], (Streamer2.Data.Data)[i], (Streamer3.Data.Data)[i], (Streamer4.Data.Data)[i]);
+                        dataHandler.InsertData((Streamer1.Data.Data)[i], (Streamer2.Data.Data)[i], (Streamer3.Data.Data)[i], (Streamer4.Data.Data)[i]);
                     }
                     else
                     {
                         // Handle the case where i is out of bounds
                         i = 0;
                     }
-                    dataHandler.InsertTemperatureData((Streamer1.Data.Data)[i], (Streamer2.Data.Data)[i], (Streamer3.Data.Data)[i], (Streamer4.Data.Data)[i]);
+                    dataHandler.InsertData((Streamer1.Data.Data)[i], (Streamer2.Data.Data)[i], (Streamer3.Data.Data)[i], (Streamer4.Data.Data)[i]);
                     formsPlot1.Refresh();
                     i++;
                 }
