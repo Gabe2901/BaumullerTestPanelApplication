@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SQLite;
 using System.IO;
+using System.Windows.Forms;
 
 namespace BaumullerTestPanelApplication
 
@@ -43,6 +44,37 @@ namespace BaumullerTestPanelApplication
             using (SQLiteConnection m_dbConnection = new SQLiteConnection($"Data Source={dbPath};Version=3;"))
             {
                 m_dbConnection.Close();
+            }
+        }
+
+        public void SaveFile()
+        {
+            DialogResult saveFileOptionMsgBox = MessageBox.Show("Would you like to save the data to a file?", "Save Data", MessageBoxButtons.YesNo);
+            if(saveFileOptionMsgBox == DialogResult.Yes)
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "CSV files (*.csv)|*.csv";
+                saveFileDialog.Title = "Save data to a file";
+                saveFileDialog.ShowDialog();
+
+                if(saveFileDialog.FileName != "")
+                {
+                    using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName))
+                    {
+                        using (SQLiteConnection m_dbConnection = new SQLiteConnection($"Data Source={dbPath};Version=3;"))
+                        {
+                            m_dbConnection.Open();
+                            string sql = "SELECT * FROM BaumullerTestPanelApplication";
+                            SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                            SQLiteDataReader reader = command.ExecuteReader();
+                            while (reader.Read())
+                            {
+                                sw.WriteLine(reader["Temperature_One"] + "," + reader["Temperature_Two"] + "," + reader["DriveEnd_One"] + "," + reader["DriveEnd_Two"]);
+                            }
+                            CloseConnection();
+                        }
+                    }
+                }
             }
         }
     }

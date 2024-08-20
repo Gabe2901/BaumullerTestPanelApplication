@@ -14,8 +14,8 @@ namespace BaumullerTestPanelApplication
         public string Description => "Plots live streaming data as a fixed-width line plot, " +
             "shifting old data out as new data comes in.";
 
-        readonly System.Windows.Forms.Timer AddNewDataTimer = new() { Interval = 250, Enabled = false };
-        readonly System.Windows.Forms.Timer UpdatePlotTimer = new() { Interval = 500, Enabled = false };
+        readonly System.Windows.Forms.Timer AddNewDataTimer = new() { Interval = 10, Enabled = false };
+        readonly System.Windows.Forms.Timer UpdatePlotTimer = new() { Interval = 50, Enabled = false };
 
         readonly ScottPlot.Plottables.DataStreamer Streamer1;
         readonly ScottPlot.Plottables.DataStreamer Streamer2;
@@ -206,6 +206,15 @@ namespace BaumullerTestPanelApplication
 
                 if (Streamer1.HasNewData)
                 {
+                    if (i < Streamer1.Data.Data.Length && i < Streamer2.Data.Data.Length && i < Streamer3.Data.Data.Length && i < Streamer4.Data.Data.Length)
+                    {
+                        dataHandler.InsertTemperatureData((Streamer1.Data.Data)[i], (Streamer2.Data.Data)[i], (Streamer3.Data.Data)[i], (Streamer4.Data.Data)[i]);
+                    }
+                    else
+                    {
+                        // Handle the case where i is out of bounds
+                        i = 0;
+                    }
                     dataHandler.InsertTemperatureData((Streamer1.Data.Data)[i], (Streamer2.Data.Data)[i], (Streamer3.Data.Data)[i], (Streamer4.Data.Data)[i]);
                     formsPlot1.Refresh();
                     i++;

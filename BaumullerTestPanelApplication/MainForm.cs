@@ -16,6 +16,9 @@ namespace BaumullerTestPanelApplication
         //Help Menu
         HelpWindow helpWindow = new HelpWindow();
 
+        //datahandler
+        DataHandler dataHandler = new DataHandler();
+
 
         //TODO: add drive health check
 
@@ -140,6 +143,7 @@ namespace BaumullerTestPanelApplication
                         {
                             ((CheckBox)c).Checked = false;
                             MessageBox.Show("Test finished.");
+                            dataHandler.SaveFile();
                         }
                     }
 
