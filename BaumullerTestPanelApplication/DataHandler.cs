@@ -1,5 +1,5 @@
-﻿using System.Data.SQLite;
-using System;
+﻿using System;
+using System.Data.SQLite;
 using System.IO;
 
 namespace BaumullerTestPanelApplication
@@ -46,5 +46,5 @@ namespace BaumullerTestPanelApplication
             }
         }
     }
-    }
+}
 

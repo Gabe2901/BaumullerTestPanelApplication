@@ -18,7 +18,7 @@ namespace BaumullerTestPanelApplication
 
 
         //TODO: add drive health check
-        
+
         public MainForm()
         {
             InitializeComponent();
@@ -27,7 +27,7 @@ namespace BaumullerTestPanelApplication
             Drive3HealthTextBox.Text = "DRIVE 3 = OK";
             Drive5HealthTextBox.Text = "DRIVE 5 = OK";
 
-            
+
         }
 
         private void EstopButtonOnClick(object sender, EventArgs e)
@@ -58,15 +58,16 @@ namespace BaumullerTestPanelApplication
             {
                 if ((string)c.Tag == DriveTag)
                 {
-                    if (c.GetType() == typeof(TextBox)) {
+                    if (c.GetType() == typeof(TextBox))
+                    {
                         DriveSpeed = Convert.ToInt32(((TextBox)c).Text);
-                        if(DriveSpeed > DriveSpeedLimit)
+                        if (DriveSpeed > DriveSpeedLimit)
                         {
                             DriveSpeed = DriveSpeedLimit;
                             ((TextBox)c).Text = Convert.ToString(DriveSpeed);
                         }
                     }
-                    
+
                 }
             }
             foreach (Control c in this.Controls)
@@ -79,7 +80,7 @@ namespace BaumullerTestPanelApplication
                     }
                 }
             }
-        } 
+        }
         private void DriveSpeedControl(object sender, EventArgs e)
         {
             TrackBar senderObject = (TrackBar)sender;
@@ -124,7 +125,7 @@ namespace BaumullerTestPanelApplication
             {
                 EnteredTime = EnteredTime - 1;
                 TimeControlTextBox.Text = Convert.ToString(EnteredTime);
-                
+
 
             }
             else
@@ -141,7 +142,7 @@ namespace BaumullerTestPanelApplication
                             MessageBox.Show("Test finished.");
                         }
                     }
-                    
+
                 }
             }
         }
@@ -150,15 +151,15 @@ namespace BaumullerTestPanelApplication
         {
             CheckBox checkBox = (CheckBox)sender;
             string DriveTag = (string)checkBox.Tag;
-            
-            
-                foreach (Control c in this.Controls)
+
+
+            foreach (Control c in this.Controls)
+            {
+                if ((string)c.Tag == DriveTag & !(c == checkBox))
                 {
-                    if ((string)c.Tag == DriveTag & !(c == checkBox))
-                    {
-                        c.Enabled = !checkBox.Checked;
-                    }
+                    c.Enabled = !checkBox.Checked;
                 }
+            }
             if (checkBox.Checked)
             {
                 if (Convert.ToInt32(TimeControlTextBox.Text) > 0)

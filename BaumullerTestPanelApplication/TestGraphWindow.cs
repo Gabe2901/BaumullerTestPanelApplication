@@ -14,8 +14,8 @@ namespace BaumullerTestPanelApplication
         public string Description => "Plots live streaming data as a fixed-width line plot, " +
             "shifting old data out as new data comes in.";
 
-        readonly System.Windows.Forms.Timer AddNewDataTimer = new() { Interval = 100, Enabled = false };
-        readonly System.Windows.Forms.Timer UpdatePlotTimer = new() { Interval = 250, Enabled = false };
+        readonly System.Windows.Forms.Timer AddNewDataTimer = new() { Interval = 250, Enabled = false };
+        readonly System.Windows.Forms.Timer UpdatePlotTimer = new() { Interval = 500, Enabled = false };
 
         readonly ScottPlot.Plottables.DataStreamer Streamer1;
         readonly ScottPlot.Plottables.DataStreamer Streamer2;
@@ -28,7 +28,7 @@ namespace BaumullerTestPanelApplication
         readonly ScottPlot.DataGenerators.RandomWalker Walker4 = new(3);
 
         DataHandler dataHandler = new DataHandler();
-        
+
 
 
         AxisLine? PlottableBeingDragged = null;
@@ -39,7 +39,7 @@ namespace BaumullerTestPanelApplication
             UpdatePlotTimer.Start();
             dataHandler.CreateDatabase();
             dataHandler.CreateTemperatureTable();
-            
+
         }
 
         public void Stop()
@@ -65,7 +65,7 @@ namespace BaumullerTestPanelApplication
             Streamer2.LegendText = "Temperature 2";
 
             //Vertical lines
-            var h1 = formsPlot1.Plot.Add.HorizontalLine(23, 2,ScottPlot.Colors.Red,ScottPlot.LinePattern.Dashed);
+            var h1 = formsPlot1.Plot.Add.HorizontalLine(23, 2, ScottPlot.Colors.Red, ScottPlot.LinePattern.Dashed);
             h1.IsDraggable = true;
 
             var h2 = formsPlot2.Plot.Add.HorizontalLine(23, 2, ScottPlot.Colors.Red, ScottPlot.LinePattern.Dashed);
@@ -203,11 +203,10 @@ namespace BaumullerTestPanelApplication
             // setup a timer to request a render periodically
             UpdatePlotTimer.Tick += (s, e) =>
             {
-                
+
                 if (Streamer1.HasNewData)
                 {
                     dataHandler.InsertTemperatureData((Streamer1.Data.Data)[i], (Streamer2.Data.Data)[i], (Streamer3.Data.Data)[i], (Streamer4.Data.Data)[i]);
-                    formsPlot1.Plot.Title($"Processed {Streamer1.Data.CountTotal:N0} points");
                     formsPlot1.Refresh();
                     i++;
                 }
@@ -299,7 +298,6 @@ namespace BaumullerTestPanelApplication
             {
                 if (Streamer3.HasNewData)
                 {
-                    formsPlot2.Plot.Title($"Processed {Streamer3.Data.CountTotal:N0} points");
                     formsPlot2.Refresh();
                 }
             };
