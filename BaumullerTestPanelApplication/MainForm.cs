@@ -20,7 +20,7 @@ namespace BaumullerTestPanelApplication
         DataHandler dataHandler = new DataHandler();
 
         //PLC
-        PlcController PlcController = new PlcController();
+        PlcController PlcControllerObject = new PlcController();
 
         //Drive Controller
         DriveController driveController = new DriveController();
@@ -175,7 +175,7 @@ namespace BaumullerTestPanelApplication
                 {
                     checkBox.Text = "STOP";
                     checkBox.BackColor = Color.Red;
-                    driveController.DriveStart(DriveTag, PlcController.CreatePlcObject());
+                    driveController.DriveStart(DriveTag, PlcControllerObject.CreatePlcObject());
                     timer1.Start();
 
                     TimeControlTextBox.Enabled = false;
@@ -197,7 +197,7 @@ namespace BaumullerTestPanelApplication
                 checkBox.Text = "START";
                 checkBox.BackColor = Color.Green;
                 timer1.Stop();
-                driveController.DriveStop(DriveTag, PlcController.CreatePlcObject());
+                driveController.DriveStop(DriveTag, PlcControllerObject.CreatePlcObject());
                 testGraphWindow.Stop();
                 TimeControlTextBox.Enabled = true;
 
