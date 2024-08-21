@@ -19,6 +19,12 @@ namespace BaumullerTestPanelApplication
         //datahandler
         DataHandler dataHandler = new DataHandler();
 
+        //PLC
+        PlcController PlcController = new PlcController();
+
+        //Drive Controller
+        DriveController driveController = new DriveController();
+
 
         //TODO: add drive health check
 
@@ -156,7 +162,6 @@ namespace BaumullerTestPanelApplication
             CheckBox checkBox = (CheckBox)sender;
             string DriveTag = (string)checkBox.Tag;
 
-
             foreach (Control c in this.Controls)
             {
                 if ((string)c.Tag == DriveTag & !(c == checkBox))
@@ -170,7 +175,9 @@ namespace BaumullerTestPanelApplication
                 {
                     checkBox.Text = "STOP";
                     checkBox.BackColor = Color.Red;
+                    driveController.DriveStart(DriveTag, PlcController.CreatePlcObject());
                     timer1.Start();
+
                     TimeControlTextBox.Enabled = false;
                     if (testGraphWindow == null || testGraphWindow.IsDisposed)
                     {
@@ -190,6 +197,7 @@ namespace BaumullerTestPanelApplication
                 checkBox.Text = "START";
                 checkBox.BackColor = Color.Green;
                 timer1.Stop();
+                driveController.DriveStop(DriveTag, PlcController.CreatePlcObject());
                 testGraphWindow.Stop();
                 TimeControlTextBox.Enabled = true;
 
