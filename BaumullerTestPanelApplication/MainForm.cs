@@ -204,19 +204,6 @@ namespace BaumullerTestPanelApplication
             }
         }
 
-        private void FullReducedToggleMethod(object sender, EventArgs e)
-        {
-            CheckBox checkBox = (CheckBox)sender;
-            if (checkBox.Checked)
-            {
-                checkBox.Text = "REDUCED";
-            }
-            else
-            {
-                checkBox.Text = "FULL";
-            }
-        }
-
         private void ForwardReverseToggleMethod(object sender, EventArgs e)
         {
             CheckBox checkBox = (CheckBox)sender;

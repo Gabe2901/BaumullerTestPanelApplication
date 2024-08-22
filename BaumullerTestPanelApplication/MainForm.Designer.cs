@@ -50,42 +50,36 @@ namespace BaumullerTestPanelApplication
             this.Drive1SpeedText = new System.Windows.Forms.TextBox();
             this.Drive1SpeedBtn = new System.Windows.Forms.Button();
             this.Drive1ForRevToggle = new System.Windows.Forms.CheckBox();
-            this.Drive1FullRedCurrToggle = new System.Windows.Forms.CheckBox();
             this.Drive2Label = new System.Windows.Forms.Label();
             this.Drive2StopStartBtn = new System.Windows.Forms.CheckBox();
             this.Drive2SpeedBar = new System.Windows.Forms.TrackBar();
             this.Drive2SpeedText = new System.Windows.Forms.TextBox();
             this.Drive2SetSpeedBtn = new System.Windows.Forms.Button();
             this.Drive2ForRevToggle = new System.Windows.Forms.CheckBox();
-            this.Drive2FullRedToggle = new System.Windows.Forms.CheckBox();
             this.Drive3Label = new System.Windows.Forms.Label();
             this.Drive3StopStartBtn = new System.Windows.Forms.CheckBox();
             this.Drive3SpeedBar = new System.Windows.Forms.TrackBar();
             this.Drive3SpeedText = new System.Windows.Forms.TextBox();
             this.Drive3SetSpeedBtn = new System.Windows.Forms.Button();
             this.Drive3ForRevToggle = new System.Windows.Forms.CheckBox();
-            this.Drive3RedFullToggle = new System.Windows.Forms.CheckBox();
             this.Drive4Label = new System.Windows.Forms.Label();
             this.Drive4StopStartBtn = new System.Windows.Forms.CheckBox();
             this.Drive4SpeedBar = new System.Windows.Forms.TrackBar();
             this.Drive4SpeedText = new System.Windows.Forms.TextBox();
             this.Drive4SetSpeedBtn = new System.Windows.Forms.Button();
             this.Drive4RevForToggle = new System.Windows.Forms.CheckBox();
-            this.Drive4FullRedToggle = new System.Windows.Forms.CheckBox();
             this.Drive5Label = new System.Windows.Forms.Label();
             this.Drive5StopStartBtn = new System.Windows.Forms.CheckBox();
             this.Drive5SpeedBar = new System.Windows.Forms.TrackBar();
             this.Drive5SpeedText = new System.Windows.Forms.TextBox();
             this.Drive5SpeedBtn = new System.Windows.Forms.Button();
             this.Drive5RevForToggle = new System.Windows.Forms.CheckBox();
-            this.Drive5FullRedToggle = new System.Windows.Forms.CheckBox();
             this.Drive6Label = new System.Windows.Forms.Label();
             this.Drive6StopStartBtn = new System.Windows.Forms.CheckBox();
             this.Drive6SpeedBar = new System.Windows.Forms.TrackBar();
             this.Drive6SpeedText = new System.Windows.Forms.TextBox();
             this.Drive6SetSpeedBtn = new System.Windows.Forms.Button();
             this.Drive6RevForToggle = new System.Windows.Forms.CheckBox();
-            this.Drive6RedFullToggle = new System.Windows.Forms.CheckBox();
             this.Drive3HealthTextBox = new System.Windows.Forms.TextBox();
             this.Drive1HealthTextBox = new System.Windows.Forms.TextBox();
             this.Drive2HealthTextBox = new System.Windows.Forms.TextBox();
@@ -229,19 +223,6 @@ namespace BaumullerTestPanelApplication
             this.Drive1ForRevToggle.UseVisualStyleBackColor = true;
             this.Drive1ForRevToggle.CheckedChanged += new System.EventHandler(this.ForwardReverseToggleMethod);
             // 
-            // Drive1FullRedCurrToggle
-            // 
-            this.Drive1FullRedCurrToggle.AutoSize = true;
-            this.Drive1FullRedCurrToggle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Drive1FullRedCurrToggle.Location = new System.Drawing.Point(35, 274);
-            this.Drive1FullRedCurrToggle.Name = "Drive1FullRedCurrToggle";
-            this.Drive1FullRedCurrToggle.Size = new System.Drawing.Size(83, 29);
-            this.Drive1FullRedCurrToggle.TabIndex = 9;
-            this.Drive1FullRedCurrToggle.Tag = "Drive1";
-            this.Drive1FullRedCurrToggle.Text = "FULL";
-            this.Drive1FullRedCurrToggle.UseVisualStyleBackColor = true;
-            this.Drive1FullRedCurrToggle.CheckedChanged += new System.EventHandler(this.FullReducedToggleMethod);
-            // 
             // Drive2Label
             // 
             this.Drive2Label.AutoSize = true;
@@ -314,19 +295,6 @@ namespace BaumullerTestPanelApplication
             this.Drive2ForRevToggle.Text = "FORWARD";
             this.Drive2ForRevToggle.UseVisualStyleBackColor = true;
             this.Drive2ForRevToggle.CheckedChanged += new System.EventHandler(this.ForwardReverseToggleMethod);
-            // 
-            // Drive2FullRedToggle
-            // 
-            this.Drive2FullRedToggle.AutoSize = true;
-            this.Drive2FullRedToggle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Drive2FullRedToggle.Location = new System.Drawing.Point(46, 545);
-            this.Drive2FullRedToggle.Name = "Drive2FullRedToggle";
-            this.Drive2FullRedToggle.Size = new System.Drawing.Size(83, 29);
-            this.Drive2FullRedToggle.TabIndex = 16;
-            this.Drive2FullRedToggle.Tag = "Drive2";
-            this.Drive2FullRedToggle.Text = "FULL";
-            this.Drive2FullRedToggle.UseVisualStyleBackColor = true;
-            this.Drive2FullRedToggle.CheckedChanged += new System.EventHandler(this.FullReducedToggleMethod);
             // 
             // Drive3Label
             // 
@@ -402,19 +370,6 @@ namespace BaumullerTestPanelApplication
             this.Drive3ForRevToggle.UseVisualStyleBackColor = true;
             this.Drive3ForRevToggle.CheckedChanged += new System.EventHandler(this.ForwardReverseToggleMethod);
             // 
-            // Drive3RedFullToggle
-            // 
-            this.Drive3RedFullToggle.AutoSize = true;
-            this.Drive3RedFullToggle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Drive3RedFullToggle.Location = new System.Drawing.Point(35, 816);
-            this.Drive3RedFullToggle.Name = "Drive3RedFullToggle";
-            this.Drive3RedFullToggle.Size = new System.Drawing.Size(83, 29);
-            this.Drive3RedFullToggle.TabIndex = 23;
-            this.Drive3RedFullToggle.Tag = "Drive3";
-            this.Drive3RedFullToggle.Text = "FULL";
-            this.Drive3RedFullToggle.UseVisualStyleBackColor = true;
-            this.Drive3RedFullToggle.CheckedChanged += new System.EventHandler(this.FullReducedToggleMethod);
-            // 
             // Drive4Label
             // 
             this.Drive4Label.AutoSize = true;
@@ -487,19 +442,6 @@ namespace BaumullerTestPanelApplication
             this.Drive4RevForToggle.Text = "FORWARD";
             this.Drive4RevForToggle.UseVisualStyleBackColor = true;
             this.Drive4RevForToggle.CheckedChanged += new System.EventHandler(this.ForwardReverseToggleMethod);
-            // 
-            // Drive4FullRedToggle
-            // 
-            this.Drive4FullRedToggle.AutoSize = true;
-            this.Drive4FullRedToggle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Drive4FullRedToggle.Location = new System.Drawing.Point(202, 274);
-            this.Drive4FullRedToggle.Name = "Drive4FullRedToggle";
-            this.Drive4FullRedToggle.Size = new System.Drawing.Size(83, 29);
-            this.Drive4FullRedToggle.TabIndex = 30;
-            this.Drive4FullRedToggle.Tag = "Drive4";
-            this.Drive4FullRedToggle.Text = "FULL";
-            this.Drive4FullRedToggle.UseVisualStyleBackColor = true;
-            this.Drive4FullRedToggle.CheckedChanged += new System.EventHandler(this.FullReducedToggleMethod);
             // 
             // Drive5Label
             // 
@@ -574,19 +516,6 @@ namespace BaumullerTestPanelApplication
             this.Drive5RevForToggle.UseVisualStyleBackColor = true;
             this.Drive5RevForToggle.CheckedChanged += new System.EventHandler(this.ForwardReverseToggleMethod);
             // 
-            // Drive5FullRedToggle
-            // 
-            this.Drive5FullRedToggle.AutoSize = true;
-            this.Drive5FullRedToggle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Drive5FullRedToggle.Location = new System.Drawing.Point(202, 545);
-            this.Drive5FullRedToggle.Name = "Drive5FullRedToggle";
-            this.Drive5FullRedToggle.Size = new System.Drawing.Size(83, 29);
-            this.Drive5FullRedToggle.TabIndex = 37;
-            this.Drive5FullRedToggle.Tag = "Drive5";
-            this.Drive5FullRedToggle.Text = "FULL";
-            this.Drive5FullRedToggle.UseVisualStyleBackColor = true;
-            this.Drive5FullRedToggle.CheckedChanged += new System.EventHandler(this.FullReducedToggleMethod);
-            // 
             // Drive6Label
             // 
             this.Drive6Label.AutoSize = true;
@@ -659,19 +588,6 @@ namespace BaumullerTestPanelApplication
             this.Drive6RevForToggle.Text = "FORWARD";
             this.Drive6RevForToggle.UseVisualStyleBackColor = true;
             this.Drive6RevForToggle.CheckedChanged += new System.EventHandler(this.ForwardReverseToggleMethod);
-            // 
-            // Drive6RedFullToggle
-            // 
-            this.Drive6RedFullToggle.AutoSize = true;
-            this.Drive6RedFullToggle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Drive6RedFullToggle.Location = new System.Drawing.Point(202, 816);
-            this.Drive6RedFullToggle.Name = "Drive6RedFullToggle";
-            this.Drive6RedFullToggle.Size = new System.Drawing.Size(83, 29);
-            this.Drive6RedFullToggle.TabIndex = 44;
-            this.Drive6RedFullToggle.Tag = "Drive6";
-            this.Drive6RedFullToggle.Text = "FULL";
-            this.Drive6RedFullToggle.UseVisualStyleBackColor = true;
-            this.Drive6RedFullToggle.CheckedChanged += new System.EventHandler(this.FullReducedToggleMethod);
             // 
             // Drive3HealthTextBox
             // 
@@ -747,42 +663,36 @@ namespace BaumullerTestPanelApplication
             this.Controls.Add(this.Drive2HealthTextBox);
             this.Controls.Add(this.Drive1HealthTextBox);
             this.Controls.Add(this.Drive3HealthTextBox);
-            this.Controls.Add(this.Drive6RedFullToggle);
             this.Controls.Add(this.Drive6RevForToggle);
             this.Controls.Add(this.Drive6SetSpeedBtn);
             this.Controls.Add(this.Drive6SpeedText);
             this.Controls.Add(this.Drive6SpeedBar);
             this.Controls.Add(this.Drive6StopStartBtn);
             this.Controls.Add(this.Drive6Label);
-            this.Controls.Add(this.Drive5FullRedToggle);
             this.Controls.Add(this.Drive5RevForToggle);
             this.Controls.Add(this.Drive5SpeedBtn);
             this.Controls.Add(this.Drive5SpeedText);
             this.Controls.Add(this.Drive5SpeedBar);
             this.Controls.Add(this.Drive5StopStartBtn);
             this.Controls.Add(this.Drive5Label);
-            this.Controls.Add(this.Drive4FullRedToggle);
             this.Controls.Add(this.Drive4RevForToggle);
             this.Controls.Add(this.Drive4SetSpeedBtn);
             this.Controls.Add(this.Drive4SpeedText);
             this.Controls.Add(this.Drive4SpeedBar);
             this.Controls.Add(this.Drive4StopStartBtn);
             this.Controls.Add(this.Drive4Label);
-            this.Controls.Add(this.Drive3RedFullToggle);
             this.Controls.Add(this.Drive3ForRevToggle);
             this.Controls.Add(this.Drive3SetSpeedBtn);
             this.Controls.Add(this.Drive3SpeedText);
             this.Controls.Add(this.Drive3SpeedBar);
             this.Controls.Add(this.Drive3StopStartBtn);
             this.Controls.Add(this.Drive3Label);
-            this.Controls.Add(this.Drive2FullRedToggle);
             this.Controls.Add(this.Drive2ForRevToggle);
             this.Controls.Add(this.Drive2SetSpeedBtn);
             this.Controls.Add(this.Drive2SpeedText);
             this.Controls.Add(this.Drive2SpeedBar);
             this.Controls.Add(this.Drive2StopStartBtn);
             this.Controls.Add(this.Drive2Label);
-            this.Controls.Add(this.Drive1FullRedCurrToggle);
             this.Controls.Add(this.Drive1ForRevToggle);
             this.Controls.Add(this.Drive1SpeedBtn);
             this.Controls.Add(this.Drive1SpeedText);
@@ -827,42 +737,36 @@ namespace BaumullerTestPanelApplication
         private System.Windows.Forms.TextBox Drive1SpeedText;
         private System.Windows.Forms.Button Drive1SpeedBtn;
         private System.Windows.Forms.CheckBox Drive1ForRevToggle;
-        private System.Windows.Forms.CheckBox Drive1FullRedCurrToggle;
         private System.Windows.Forms.Label Drive2Label;
         private System.Windows.Forms.CheckBox Drive2StopStartBtn;
         private System.Windows.Forms.TrackBar Drive2SpeedBar;
         private System.Windows.Forms.TextBox Drive2SpeedText;
         private System.Windows.Forms.Button Drive2SetSpeedBtn;
         private System.Windows.Forms.CheckBox Drive2ForRevToggle;
-        private System.Windows.Forms.CheckBox Drive2FullRedToggle;
         private System.Windows.Forms.Label Drive3Label;
         private System.Windows.Forms.CheckBox Drive3StopStartBtn;
         private System.Windows.Forms.TrackBar Drive3SpeedBar;
         private System.Windows.Forms.TextBox Drive3SpeedText;
         private System.Windows.Forms.Button Drive3SetSpeedBtn;
         private System.Windows.Forms.CheckBox Drive3ForRevToggle;
-        private System.Windows.Forms.CheckBox Drive3RedFullToggle;
         private System.Windows.Forms.Label Drive4Label;
         private System.Windows.Forms.CheckBox Drive4StopStartBtn;
         private System.Windows.Forms.TrackBar Drive4SpeedBar;
         private System.Windows.Forms.TextBox Drive4SpeedText;
         private System.Windows.Forms.Button Drive4SetSpeedBtn;
         private System.Windows.Forms.CheckBox Drive4RevForToggle;
-        private System.Windows.Forms.CheckBox Drive4FullRedToggle;
         private System.Windows.Forms.Label Drive5Label;
         private System.Windows.Forms.CheckBox Drive5StopStartBtn;
         private System.Windows.Forms.TrackBar Drive5SpeedBar;
         private System.Windows.Forms.TextBox Drive5SpeedText;
         private System.Windows.Forms.Button Drive5SpeedBtn;
         private System.Windows.Forms.CheckBox Drive5RevForToggle;
-        private System.Windows.Forms.CheckBox Drive5FullRedToggle;
         private System.Windows.Forms.Label Drive6Label;
         private System.Windows.Forms.CheckBox Drive6StopStartBtn;
         private System.Windows.Forms.TrackBar Drive6SpeedBar;
         private System.Windows.Forms.TextBox Drive6SpeedText;
         private System.Windows.Forms.Button Drive6SetSpeedBtn;
         private System.Windows.Forms.CheckBox Drive6RevForToggle;
-        private System.Windows.Forms.CheckBox Drive6RedFullToggle;
         private System.Windows.Forms.TextBox Drive3HealthTextBox;
         private System.Windows.Forms.TextBox Drive1HealthTextBox;
         private System.Windows.Forms.TextBox Drive2HealthTextBox;

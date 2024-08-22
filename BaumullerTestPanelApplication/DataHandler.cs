@@ -13,18 +13,16 @@ namespace BaumullerTestPanelApplication
         // Constructor
         public void CreateDatabase()
         {
-            SQLiteConnection.CreateFile(dbPath);
-        }
-        public void CreateTable()
-        {
-            using (SQLiteConnection m_dbConnection = new SQLiteConnection($"Data Source={dbPath};Version=3;"))
+            if (!File.Exists(dbPath))
             {
-                m_dbConnection.Open();
-                // Create a table (Temperature_One, Temperature_Two
-                string sql = "create table BaumullerTestPanelApplication (Temperature_One double, Temperature_Two double, DriveEnd_One double, DriveEnd_Two double)";
-                SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
-                command.ExecuteNonQuery();
-                CloseConnection();
+                SQLiteConnection.CreateFile(dbPath);
+                using (SQLiteConnection m_dbConnection = new SQLiteConnection($"Data Source={dbPath};Version=3;")) {
+                    m_dbConnection.Open();
+                    string sql = "create table BaumullerTestPanelApplication (Temperature_One double, Temperature_Two double, DriveEnd_One double, DriveEnd_Two double)";
+                    SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                    command.ExecuteNonQuery();
+                    CloseConnection();
+                }
             }
         }
 

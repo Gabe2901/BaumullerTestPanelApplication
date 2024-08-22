@@ -16,9 +16,5 @@ namespace BaumullerTestPanelApplication
             return plc;
         }
 
-        public bool IsPlcOpen(Plc plc)
-        {
-            return plc.IsConnected;
-        }
     }
 }

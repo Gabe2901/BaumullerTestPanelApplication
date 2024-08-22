@@ -38,7 +38,6 @@ namespace BaumullerTestPanelApplication
             AddNewDataTimer.Start();
             UpdatePlotTimer.Start();
             dataHandler.CreateDatabase();
-            dataHandler.CreateTable();
 
         }
 
