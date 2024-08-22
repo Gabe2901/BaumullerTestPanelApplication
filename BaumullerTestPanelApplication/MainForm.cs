@@ -175,8 +175,8 @@ namespace BaumullerTestPanelApplication
                 {
                     checkBox.Text = "STOP";
                     checkBox.BackColor = Color.Red;
-                    driveController.DriveStart(DriveTag, PlcControllerObject.CreatePlcObject());
-                    timer1.Start();
+                    
+                    
 
                     TimeControlTextBox.Enabled = false;
                     if (testGraphWindow == null || testGraphWindow.IsDisposed)
@@ -185,6 +185,8 @@ namespace BaumullerTestPanelApplication
                     }
                     testGraphWindow.Show();
                     testGraphWindow.Start();
+                    //driveController.DriveStart(DriveTag, PlcControllerObject.CreatePlcObject());
+                    timer1.Start();
                 }
                 else
                 {
@@ -197,8 +199,9 @@ namespace BaumullerTestPanelApplication
                 checkBox.Text = "START";
                 checkBox.BackColor = Color.Green;
                 timer1.Stop();
-                driveController.DriveStop(DriveTag, PlcControllerObject.CreatePlcObject());
                 testGraphWindow.Stop();
+                //driveController.DriveStop(DriveTag, PlcControllerObject.CreatePlcObject());
+                
                 TimeControlTextBox.Enabled = true;
 
             }
