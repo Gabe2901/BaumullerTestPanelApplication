@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using OpenTK.Audio.OpenAL;
 
 namespace BaumullerTestPanelApplication
 {
@@ -10,17 +11,15 @@ namespace BaumullerTestPanelApplication
         //VARIABLES
         List<int> DriveSpeedList = new List<int> { 2500, 2500, 2500, 2500, 2500, 2500 };
 
-        //Graph window
-        TestGraphWindow testGraphWindow = new TestGraphWindow();
+        GraphWindow graphWindow;
 
         //Help Menu
         HelpWindow helpWindow = new HelpWindow();
 
-        //datahandler
-        DataHandler dataHandler = new DataHandler();
 
-        //PLC
-        PlcController PlcControllerObject = new PlcController();
+        //datahandler
+        DataHandler dataHandler;
+
 
         //Drive Controller
         DriveController driveController = new DriveController();
@@ -36,7 +35,8 @@ namespace BaumullerTestPanelApplication
             Drive3HealthTextBox.Text = "DRIVE 3 = OK";
             Drive5HealthTextBox.Text = "DRIVE 5 = OK";
 
-
+            dataHandler = new DataHandler(driveController);
+            graphWindow = new GraphWindow(dataHandler);
         }
 
         private void EstopButtonOnClick(object sender, EventArgs e)
@@ -175,17 +175,17 @@ namespace BaumullerTestPanelApplication
                 {
                     checkBox.Text = "STOP";
                     checkBox.BackColor = Color.Red;
-                    
-                    
+
+
 
                     TimeControlTextBox.Enabled = false;
-                    if (testGraphWindow == null || testGraphWindow.IsDisposed)
+                    if (graphWindow == null || graphWindow.IsDisposed)
                     {
-                        testGraphWindow = new TestGraphWindow();
+                        graphWindow = new GraphWindow(dataHandler);
                     }
-                    testGraphWindow.Show();
-                    testGraphWindow.Start();
-                    //driveController.DriveStart(DriveTag, PlcControllerObject.CreatePlcObject());
+                    graphWindow.Show();
+                    graphWindow.Start();
+                    driveController.DriveStart(DriveTag);
                     timer1.Start();
                 }
                 else
@@ -199,9 +199,9 @@ namespace BaumullerTestPanelApplication
                 checkBox.Text = "START";
                 checkBox.BackColor = Color.Green;
                 timer1.Stop();
-                testGraphWindow.Stop();
-                //driveController.DriveStop(DriveTag, PlcControllerObject.CreatePlcObject());
-                
+                graphWindow.Stop();
+                driveController.DriveStop(DriveTag);
+
                 TimeControlTextBox.Enabled = true;
 
             }

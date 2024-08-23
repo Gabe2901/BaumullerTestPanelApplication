@@ -1,47 +1,77 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SQLite;
+using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace BaumullerTestPanelApplication
 
 {
-    internal class DataHandler
+    public class DataHandler(DriveController driveController)
     {
         // Declare the connectionString as a field
         readonly string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), DateTime.Now.ToString("hh_m_ddMMMyy")+ "DATABASE.db");
         // Constructor
+        private List<double> data = new List<double>();
+
         public void CreateDatabase()
         {
             if (!File.Exists(dbPath))
             {
-                SQLiteConnection.CreateFile(dbPath);
-                using (SQLiteConnection m_dbConnection = new SQLiteConnection($"Data Source={dbPath};Version=3;")) {
+                try
+                {
+                    SQLiteConnection.CreateFile(dbPath);
+                    using (SQLiteConnection m_dbConnection = new SQLiteConnection($"Data Source={dbPath};Version=3;"))
+                    {
+                        m_dbConnection.Open();
+                        string sql = "create table BaumullerTestPanelApplication (Temperature_One double, Temperature_Two double, DriveEnd_One double, DriveEnd_Two double)";
+                        SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                        command.ExecuteNonQuery();
+                        CloseConnection();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                    Debug.WriteLine("Error: " + ex.Message);
+                }
+            }
+        }
+
+        public void InsertData(double drive1)
+        {
+            try
+            {
+                using (SQLiteConnection m_dbConnection = new SQLiteConnection($"Data Source={dbPath};Version=3;"))
+                {
                     m_dbConnection.Open();
-                    string sql = "create table BaumullerTestPanelApplication (Temperature_One double, Temperature_Two double, DriveEnd_One double, DriveEnd_Two double)";
+                    string sql = "INSERT INTO BaumullerTestPanelApplication (DriveEnd_One) VALUES (" + Convert.ToString(drive1) + ")";
                     SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
                     command.ExecuteNonQuery();
                     CloseConnection();
                 }
             }
-        }
-
-        public void InsertData(double temp1, double temp2, double driveEnd1, double driveEnd2)
-        {
-            using (SQLiteConnection m_dbConnection = new SQLiteConnection($"Data Source={dbPath};Version=3;"))
+            catch (Exception ex)
             {
-                m_dbConnection.Open();
-                string sql = "INSERT INTO BaumullerTestPanelApplication (Temperature_One, Temperature_Two, DriveEnd_One, DriveEnd_Two) VALUES (" + Convert.ToString(temp1) + ", " + Convert.ToString(temp2) + ", " + Convert.ToString(driveEnd1) + ", " + Convert.ToString(driveEnd2) + ")";
-                SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
-                command.ExecuteNonQuery();
-                CloseConnection();
+                MessageBox.Show("Error: " + ex.Message);
+                Debug.WriteLine("Error: " + ex.Message);
             }
         }
         public void CloseConnection()
         {
-            using (SQLiteConnection m_dbConnection = new SQLiteConnection($"Data Source={dbPath};Version=3;"))
+            try
             {
-                m_dbConnection.Close();
+                using (SQLiteConnection m_dbConnection = new SQLiteConnection($"Data Source={dbPath};Version=3;"))
+                {
+                    m_dbConnection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                Debug.WriteLine("Error: " + ex.Message);
             }
         }
 
@@ -57,23 +87,45 @@ namespace BaumullerTestPanelApplication
 
                 if(saveFileDialog.FileName != "")
                 {
-                    using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName))
+                    try
                     {
-                        using (SQLiteConnection m_dbConnection = new SQLiteConnection($"Data Source={dbPath};Version=3;"))
+                        using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName))
                         {
-                            m_dbConnection.Open();
-                            string sql = "SELECT * FROM BaumullerTestPanelApplication";
-                            SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
-                            SQLiteDataReader reader = command.ExecuteReader();
-                            while (reader.Read())
+                            using (SQLiteConnection m_dbConnection = new SQLiteConnection($"Data Source={dbPath};Version=3;"))
                             {
-                                sw.WriteLine(reader["Temperature_One"] + "," + reader["Temperature_Two"] + "," + reader["DriveEnd_One"] + "," + reader["DriveEnd_Two"]);
+                                m_dbConnection.Open();
+                                string sql = "SELECT * FROM BaumullerTestPanelApplication";
+                                SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                                SQLiteDataReader reader = command.ExecuteReader();
+                                while (reader.Read())
+                                {
+                                    sw.WriteLine(reader["DriveEnd_One"]);
+                                }
+                                CloseConnection();
                             }
-                            CloseConnection();
                         }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                        Debug.WriteLine("Error: " + ex.Message);
                     }
                 }
             }
+        }
+
+        public double[] GetValue() { 
+            
+            //var bProcessBytes = PLC.ReadBytes(DataType.Input, 0, 64, 2);
+
+            data.Add(Convert.ToDouble(driveController.GetData()));
+            return data.ToArray();
+        }
+
+        public static int CreateRandomNumber()
+        {
+            Random random = new Random();
+            return random.Next(0, 100);
         }
     }
 }

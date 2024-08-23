@@ -657,6 +657,7 @@ namespace BaumullerTestPanelApplication
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1904, 961);
+            this.Controls.Add(this.Drive4Label);
             this.Controls.Add(this.TimerTextBoxLabel);
             this.Controls.Add(this.TimeControlTextBox);
             this.Controls.Add(this.Drive5HealthTextBox);
@@ -680,7 +681,6 @@ namespace BaumullerTestPanelApplication
             this.Controls.Add(this.Drive4SpeedText);
             this.Controls.Add(this.Drive4SpeedBar);
             this.Controls.Add(this.Drive4StopStartBtn);
-            this.Controls.Add(this.Drive4Label);
             this.Controls.Add(this.Drive3ForRevToggle);
             this.Controls.Add(this.Drive3SetSpeedBtn);
             this.Controls.Add(this.Drive3SpeedText);
