@@ -56,6 +56,7 @@
             this.Controls.Add(this.formsPlot1);
             this.Name = "GraphWindow";
             this.Text = "GraphWindow";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GraphWindow_FormClosed);
             this.Load += new System.EventHandler(this.GraphWindow_Load);
             this.ResumeLayout(false);
 

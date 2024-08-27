@@ -51,5 +51,11 @@ namespace BaumullerTestPanelApplication
         {
 
         }
+
+        private void GraphWindow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            dataHandler.CloseConnection();
+            MessageBox.Show("Database connection closed, reopening the window will create a new database.");
+        }
     }
 }
