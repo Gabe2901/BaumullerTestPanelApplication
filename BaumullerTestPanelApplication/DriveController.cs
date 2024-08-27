@@ -72,7 +72,6 @@ namespace BaumullerTestPanelApplication
             {
                 byte[] bProcessBytes = PLC.ReadBytes(DataType.Input, 0, 64, 2);
                 Array.Reverse(bProcessBytes, 0, bProcessBytes.Length);
-                Debug.WriteLine(BitConverter.ToInt16(bProcessBytes, 0));
                 return BitConverter.ToInt16(bProcessBytes, 0);
             }
             catch (Exception ex)

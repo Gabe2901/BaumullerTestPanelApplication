@@ -132,7 +132,7 @@ namespace BaumullerTestPanelApplication
 
             if (EnteredTime > 0)
             {
-                EnteredTime = EnteredTime - 1;
+                EnteredTime--;
                 TimeControlTextBox.Text = Convert.ToString(EnteredTime);
 
 

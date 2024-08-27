@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScottPlot;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -19,6 +20,7 @@ namespace BaumullerTestPanelApplication
             dataHandler.CreateDatabase();
             data = dataHandler.GetValue();
             formsPlot1.Plot.Add.Signal(data);
+            
 
             formsPlot1.Refresh();
 
@@ -27,7 +29,9 @@ namespace BaumullerTestPanelApplication
         private void OnGraphTimerTick(object sender, EventArgs e)
         {
             data = dataHandler.GetValue();
+            formsPlot1.Plot.Clear();
             dataHandler.InsertData(data[data.Length-1]);
+            formsPlot1.Plot.Add.Signal(data);
             formsPlot1.Plot.Axes.AutoScale();
             
             formsPlot1.Refresh();

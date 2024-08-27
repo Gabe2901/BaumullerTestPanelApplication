@@ -114,19 +114,14 @@ namespace BaumullerTestPanelApplication
             }
         }
 
-        public double[] GetValue() { 
-            
+        public double[] GetValue() {
+
             //var bProcessBytes = PLC.ReadBytes(DataType.Input, 0, 64, 2);
 
             data.Add(Convert.ToDouble(driveController.GetData()));
             return data.ToArray();
         }
 
-        public static int CreateRandomNumber()
-        {
-            Random random = new Random();
-            return random.Next(0, 100);
-        }
     }
 }
 
